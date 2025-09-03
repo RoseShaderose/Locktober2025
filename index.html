@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contrat Locktober – Amour & Soumission</title>
+    <title>Calendrier Locktober 2025 – Amour & Soumission</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,20 +17,27 @@
             align-items: center;
             min-height: 100vh;
             background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.9), rgba(34, 34, 34, 0.9)), /* Gradient glossy latex */
-                url('https://www.transparenttextures.com/patterns/chain.png'), /* Texture chaînes */
-                url('https://www.transparenttextures.com/patterns/leather.png'); /* Texture cuir */
-            background-blend-mode: overlay, multiply;
-            background-size: auto, 200px, 200px; /* Répétition des textures */
+                linear-gradient(rgba(0, 0, 0, 0.95), rgba(50, 50, 50, 0.95)),
+                url('https://www.transparenttextures.com/patterns/chain.png'),
+                url('https://www.transparenttextures.com/patterns/leather.png');
+            background-blend-mode: normal, overlay, multiply;
+            background-size: auto, 100px, 200px;
+            animation: gloss 5s ease-in-out infinite;
+        }
+
+        @keyframes gloss {
+            0% { background-position: 0 0, 0 0, 0 0; }
+            50% { background-position: 100px 0, 50px 50px, 0 0; }
+            100% { background-position: 0 0, 0 0, 0 0; }
         }
 
         .container {
             max-width: 900px;
             padding: 30px;
-            background: rgba(43, 10, 10, 0.9); /* Fond glossy latex sombre */
+            background: rgba(43, 10, 10, 0.9);
             border: 3px solid #8b0000;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(139, 0, 0, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.1); /* Effet shine latex */
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.2);
         }
 
         h1 {
@@ -49,6 +56,20 @@
         h1 img {
             width: 40px;
             margin: 0 10px;
+        }
+
+        .current-time {
+            background: #4a1a1a;
+            border: 2px solid #8b0000;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2em;
+            color: #e0e0e0;
+            margin: 10px auto;
+            max-width: 300px;
+            box-shadow: 0 0 10px rgba(139, 0, 0, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
         h2 {
@@ -75,68 +96,123 @@
         }
 
         .contract {
-            background: rgba(28, 28, 28, 0.9); /* Fond glossy latex */
+            background: rgba(28, 28, 28, 0.9);
             padding: 20px;
             border-radius: 5px;
             margin-bottom: 20px;
             font-size: 1.1em;
             line-height: 1.6;
-            box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1); /* Shine interne */
+            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.2);
         }
 
         .contract p, .contract ul {
             margin: 10px 0;
         }
 
-        .tasks {
-            margin-top: 20px;
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin: 20px 0;
         }
 
-        .task {
+        .calendar-day {
             background: #3c0c0c;
             padding: 15px;
-            margin: 10px 0;
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s, box-shadow 0.3s;
             display: flex;
             align-items: center;
-            justify-content: center; /* Centrage horizontal */
-            box-shadow: 0 0 10px rgba(139, 0, 0, 0.5); /* Glow BDSM */
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+            min-height: 80px;
+            text-align: center;
         }
 
-        .task:hover {
+        .calendar-day:hover {
             background: #5e0e0e;
             box-shadow: 0 0 15px rgba(139, 0, 0, 0.8);
         }
 
-        .task-header {
-            font-weight: bold;
-            color: #e0e0e0;
-            text-align: center; /* Centrage du texte */
-            flex: 1;
+        .calendar-day.disabled {
+            background: #2a2a2a;
+            opacity: 0.5;
+            cursor: default;
+            pointer-events: none;
         }
 
-        .task img {
+        .calendar-day.visited {
+            border: 2px solid #b8860b;
+            box-shadow: 0 0 10px rgba(184, 134, 11, 0.7);
+        }
+
+        .calendar-day.empty {
+            background: none;
+            box-shadow: none;
+            cursor: default;
+        }
+
+        .calendar-day img {
             width: 25px;
             margin-right: 10px;
         }
 
-        .task-content {
-            display: none; /* Masqué par défaut */
-            padding: 0 10px;
-            background: #4a1a1a;
-            border-radius: 0 0 5px 5px;
-            font-size: 1em;
+        .calendar-day span {
+            font-weight: bold;
+            color: #e0e0e0;
+            text-align: center;
+            flex: 1;
         }
 
-        .task.active .task-content {
-            display: block; /* Affiché instantanément */
-            padding: 10px;
-        }
-
-        .task.active .task-header {
+        .modal {
             display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #4a1a1a;
+            padding: 20px;
+            border: 3px solid #8b0000;
+            border-radius: 5px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-content p {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #e0e0e0;
+        }
+
+        .modal-content button {
+            background: #8b0000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+        }
+
+        .modal-content button:hover {
+            background: #b22222;
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.8);
         }
 
         .roulette {
@@ -147,23 +223,22 @@
         .roulette-wheel {
             background: #1c1c1c;
             border: 2px solid #8b0000;
-            border-radius: 50%; /* Forme ronde pour roulette */
+            border-radius: 50%;
             padding: 20px;
             min-height: 150px;
             width: 150px;
             margin: 0 auto;
             font-size: 1.2em;
-            color: #b22222; /* Texte rouge sadique */
+            color: #b22222;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(139, 0, 0, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.1); /* Shine latex */
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.2);
         }
 
         .roulette-wheel.spinning {
-            animation: spin 2s ease-out; /* Animation roulette BDSM */
+            animation: spin 2s ease-out;
         }
 
         .roulette-result {
@@ -204,7 +279,7 @@
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
-            100% { transform: rotate(1440deg); } /* 4 tours complets pour effet roulette intense */
+            100% { transform: rotate(1440deg); }
         }
 
         @media (max-width: 600px) {
@@ -217,28 +292,43 @@
                 font-size: 2em;
             }
 
+            .current-time {
+                font-size: 1em;
+                padding: 8px;
+            }
+
             h2 {
                 font-size: 1.5em;
             }
 
-            .contract, .task-content, .roulette-wheel {
+            .contract, .modal-content, .roulette-wheel {
                 font-size: 1em;
             }
 
-            h1 img, h2 img, .task img {
-                width: 25px;
+            h1 img, h2 img, .calendar-day img {
+                width: 20px;
+            }
+
+            .calendar-day {
+                min-height: 60px;
+                padding: 10px;
             }
 
             .roulette-wheel {
                 width: 120px;
                 min-height: 120px;
             }
+
+            .modal-content {
+                width: 95%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"> 🔥 Contrat Locktober – Amour & Soumission 🔒❤️ <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"></h1>
+        <h1><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"> 🔥 Calendrier Locktober 2025 – Amour & Soumission 🔒❤️ <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"></h1>
+        <div class="current-time" id="currentTime">Date et heure actuelles : Chargement...</div>
         <div class="contract">
             <p>Nous, Mamour et Namour, convenons par ce contrat que le mois d’octobre sera placé sous le signe du Locktober intégral.</p>
             <p>Ce contrat est cruel, humiliant et implacable… mais il est aussi une preuve d’amour et de confiance. Je t’impose cette cage, ces règles, ces humiliations, parce que je sais que tu en rêves, que tu en as besoin, et parce que je prends plaisir à te façonner ainsi. Chaque jour de ce mois sera une torture, mais aussi une déclaration d’appartenance et de complicité entre nous ❤️.</p>
@@ -259,230 +349,48 @@
             </ul>
 
             <h2><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"> Article 3 – Programme Officiel Jour par Jour</h2>
-            <div class="tasks">
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas">
-                    <p class="task-header">Jour 1 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Mise en place de la cage 🔒. Moi seule détiens les clés. Une photo souvenir immortalisera ton entrée dans ce premier Locktober que tu m’offres par amour.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet">
-                    <p class="task-header">Jour 2 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Silence et frustration. Aucune stimulation. Tu apprends à aimer le vide que je t’impose.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes">
-                    <p class="task-header">Jour 3 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>À partir d’aujourd’hui et jusqu’à la fin : string obligatoire 👙. Même à l’extérieur. Ton inconfort est mon plaisir.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon">
-                    <p class="task-header">Jour 4 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Tu prends soin de moi. Massages, attentions, tendresse. Tu remercies celle qui t’impose cette cage, avec amour et gratitude.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas">
-                    <p class="task-header">Jour 5 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Une heure de porno. Tu regardes, tu brûles de désir 🤤… mais tu ne touches pas. Ton amour se prouve dans la frustration.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet">
-                    <p class="task-header">Jour 6 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Permission de te masturber… sans éjaculer. Et si je veux, à mes pieds. Pour que tu n’oublies pas que tu m’appartiens.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes">
-                    <p class="task-header">Jour 7 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Une semaine déjà. Pas de récompense 😈. Tu me pénètres avec le gode-ceinture, toi restant enfermé. Tu me donnes tout, je ne t’accorde rien.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon">
-                    <p class="task-header">Jour 8 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Retrait de la cage… uniquement pour la remplacer par une plus petite, en métal. Plus serrée. Plus cruelle. Plus intime.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas">
-                    <p class="task-header">Jour 9 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Sortie en public 🚶. Tu marches, tu souris… mais ta cage t’accompagne. Et moi, je savoure ton inconfort.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet">
-                    <p class="task-header">Jour 10 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>À partir de ce jour, dès que les enfants partent à l'école, chaque matin : tenue féminine choisie par moi. Talons, lingerie, corset… et quand les enfants rentrent, tu gardes dessous ce qui peut rester caché toute la journée. Tu es mon jouet, en privé comme en secret.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes">
-                    <p class="task-header">Jour 11 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Rédaction d’un texte ✍️ : tes fantasmes les plus noirs, les plus secrets. Tu m’ouvres ton âme, car je suis ton unique confidente.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon">
-                    <p class="task-header">Jour 12 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Plug anal porté toute la journée et toute la nuit 🍑. Ton amour se mesure à ton endurance.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas">
-                    <p class="task-header">Jour 13 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Bondage. Tu t’attaches et tu attends. Je décide de quand je te libère, peut-être après avoir joué, peut-être plus tard. Et tu me remercieras.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet">
-                    <p class="task-header">Jour 14 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Deux semaines. Rien. Pas de répit, pas de liberté. Mais tu restes à moi, et ton manque devient une preuve de ton amour.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes">
-                    <p class="task-header">Jour 15 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Entretien de la maison 🧽. Tu la nettoie avec soin, car tout ce qui m’appartient doit être parfait.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon">
-                    <p class="task-header">Jour 16 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>J’ai une envie. Tu me sers. Ton plaisir n’existe pas. Le mien est ta mission.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas">
-                    <p class="task-header">Jour 17 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Viens me supplier 🙇. Si tu es assez pitoyable, je t’accorde 15 minutes hors de la cage… avant de passer à la cage rouge et électro.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet">
-                    <p class="task-header">Jour 18 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Nuit sadique 😈⚡ : plug gonflable, cage électro connectée, pinces serrées. Et moi qui joue avec ton corps comme avec mon jouet préféré.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes">
-                    <p class="task-header">Jour 19 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Le mot “non” disparaît. Tu n’es que docilité. Refuser, c’est trahir notre contrat.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon">
-                    <p class="task-header">Jour 20 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Sortie en public. Tenue masculine normale… mais dessous : lingerie complète et plug. Ton secret est notre complicité.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas">
-                    <p class="task-header">Jour 21 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Lire un récit BDSM que tu apprécies à voix haute 🔥.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet">
-                    <p class="task-header">Jour 22 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Silence total. Je t’ignore. Tu es invisible, et tu m’aimes assez pour accepter cette absence. Tu seras aveugle et sourd (boules quies et casque anti bruit tout le temps que je veux).</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes">
-                    <p class="task-header">Jour 23 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Servitude stricte. Tu fais mes corvées. À chaque tâche réussie, peut-être une caresse… mais jamais plus.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon">
-                    <p class="task-header">Jour 24 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Tu n’existes que pour moi. Tes mots se limitent à : “Oui, Maîtresse ❤️”.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas">
-                    <p class="task-header">Jour 25 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Cage électro portée toute la journée ⚡. Tu vis au rythme de mes envies de t'électrocuter.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet">
-                    <p class="task-header">Jour 26 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Nuit menotté ⛓️. Ton sommeil est un luxe que je t’arrache.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes">
-                    <p class="task-header">Jour 27 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Bondage extrême : attaché, aveuglé, bâillonné, équipé de ton plug gonflable et de ta cage électro… mais aussi privé de tes sens. Le masque à gaz et la privation sensorielle viendront t’enfermer encore plus profondément dans ton rôle. Je t’ignorerai volontairement ⏳. Tu ne sauras pas combien de temps durera ce supplice. L’attente sera ton enfer, mais aussi la plus belle preuve d’amour que tu m’offres en te laissant dépouiller de tout.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon">
-                    <p class="task-header">Jour 28 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Nuit complète avec plug gonflé, cage électro activée, pinces serrées. Tu dors en prison, mais dans mon univers.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas">
-                    <p class="task-header">Jour 29 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Confession écrite ✍️. Tu mets sur papier tes humiliations, tes frustrations, et pourquoi tu m’aimes encore plus à travers elles.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet">
-                    <p class="task-header">Jour 30 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Avant-dernier jour. Humiliation totale : tenue intégrale choisie par moi, cage noire à pointes, plug en place. Tu es mon pantin 🎭. Mon pantin que j’adore.</p>
-                    </div>
-                </div>
-                <div class="task">
-                    <img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes">
-                    <p class="task-header">Jour 31 : Cliquez pour révéler</p>
-                    <div class="task-content">
-                        <p>Journée entière enfermé et équipé de tout : cage, plug gonflable, pinces, talons, corset. Tu me supplieras de jouir… et je déciderai si je t’accorde la libération ou si, par amour cruel, je prolonge ton supplice jusqu’à Noël 🎁.</p>
-                    </div>
-                </div>
+            <div class="calendar">
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day" data-day="1"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 1</span></div>
+                <div class="calendar-day" data-day="2"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 2</span></div>
+                <div class="calendar-day" data-day="3"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 3</span></div>
+                <div class="calendar-day" data-day="4"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 4</span></div>
+                <div class="calendar-day" data-day="5"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 5</span></div>
+                <div class="calendar-day" data-day="6"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 6</span></div>
+                <div class="calendar-day" data-day="7"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 7</span></div>
+                <div class="calendar-day" data-day="8"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 8</span></div>
+                <div class="calendar-day" data-day="9"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 9</span></div>
+                <div class="calendar-day" data-day="10"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 10</span></div>
+                <div class="calendar-day" data-day="11"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 11</span></div>
+                <div class="calendar-day" data-day="12"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 12</span></div>
+                <div class="calendar-day" data-day="13"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 13</span></div>
+                <div class="calendar-day" data-day="14"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 14</span></div>
+                <div class="calendar-day" data-day="15"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 15</span></div>
+                <div class="calendar-day" data-day="16"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 16</span></div>
+                <div class="calendar-day" data-day="17"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 17</span></div>
+                <div class="calendar-day" data-day="18"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 18</span></div>
+                <div class="calendar-day" data-day="19"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 19</span></div>
+                <div class="calendar-day" data-day="20"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 20</span></div>
+                <div class="calendar-day" data-day="21"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 21</span></div>
+                <div class="calendar-day" data-day="22"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 22</span></div>
+                <div class="calendar-day" data-day="23"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 23</span></div>
+                <div class="calendar-day" data-day="24"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 24</span></div>
+                <div class="calendar-day" data-day="25"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 25</span></div>
+                <div class="calendar-day" data-day="26"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 26</span></div>
+                <div class="calendar-day" data-day="27"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 27</span></div>
+                <div class="calendar-day" data-day="28"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 28</span></div>
+                <div class="calendar-day" data-day="29"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 29</span></div>
+                <div class="calendar-day" data-day="30"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 30</span></div>
+                <div class="calendar-day" data-day="31"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 31</span></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
             </div>
             <p><em>Le programme n’est en aucun cas définitif et peut être amené à changer si la Maîtresse le souhaite.</em></p>
 
             <h2><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"> Article 4 – Sanctions</h2>
             <p>Toute désobéissance, toute faute ou tout manquement à ton rôle entraînera une sanction. Ces sanctions seront toujours une preuve de mon amour sadique, et un rappel que ton corps et ton plaisir ne t’appartiennent pas. Elles suivront une progression, du simple rappel humiliant jusqu’au supplice cruel.</p>
-            
             <div class="roulette">
                 <h3>Frustrations légères</h3>
                 <div class="roulette-wheel" id="lightFrustrationsWheel">Tournez pour découvrir...</div>
@@ -520,14 +428,54 @@
 
             <div class="signatures">
                 <h2>Signatures ✍️</h2>
-                <p>La Maîtresse, détentrice des clés et de ton cœur : ____________________</p>
+                <p>La Maîtresse, détentrice des clés et de ton cœur : Namour</p>
                 <p>Le soumis, prisonnier et amant dévoué : Mamour</p>
             </div>
         </div>
-        <button onclick="revealAllTasks()">Révéler toutes les tâches</button>
+    </div>
+
+    <div class="modal" id="taskModal">
+        <div class="modal-content">
+            <p id="taskContent"></p>
+            <button onclick="closeModal()">Fermer</button>
+        </div>
     </div>
 
     <script>
+        const tasks = {
+            1: "Mise en place de la cage 🔒. Moi seule détiens les clés. Une photo souvenir immortalisera ton entrée dans ce premier Locktober que tu m’offres par amour.",
+            2: "Silence et frustration. Aucune stimulation. Tu apprends à aimer le vide que je t’impose.",
+            3: "À partir d’aujourd’hui et jusqu’à la fin : string obligatoire 👙. Même à l’extérieur. Ton inconfort est mon plaisir.",
+            4: "Tu prends soin de moi. Massages, attentions, tendresse. Tu remercies celle qui t’impose cette cage, avec amour et gratitude.",
+            5: "Une heure de porno. Tu regardes, tu brûles de désir 🤤… mais tu ne touches pas. Ton amour se prouve dans la frustration.",
+            6: "Permission de te masturber… sans éjaculer. Et si je veux, à mes pieds. Pour que tu n’oublies pas que tu m’appartiens.",
+            7: "Une semaine déjà. Pas de récompense 😈. Tu me pénètres avec le gode-ceinture, toi restant enfermé. Tu me donnes tout, je ne t’accorde rien.",
+            8: "Retrait de la cage… uniquement pour la remplacer par une plus petite, en métal. Plus serrée. Plus cruelle. Plus intime.",
+            9: "Sortie en public 🚶. Tu marches, tu souris… mais ta cage t’accompagne. Et moi, je savoure ton inconfort.",
+            10: "À partir de ce jour, dès que les enfants partent à l'école, chaque matin : tenue féminine choisie par moi. Talons, lingerie, corset… et quand les enfants rentrent, tu gardes dessous ce qui peut rester caché toute la journée. Tu es mon jouet, en privé comme en secret.",
+            11: "Rédaction d’un texte ✍️ : tes fantasmes les plus noirs, les plus secrets. Tu m’ouvres ton âme, car je suis ton unique confidente.",
+            12: "Plug anal porté toute la journée et toute la nuit 🍑. Ton amour se mesure à ton endurance.",
+            13: "Bondage. Tu t’attaches et tu attends. Je décide de quand je te libère, peut-être après avoir joué, peut-être plus tard. Et tu me remercieras.",
+            14: "Deux semaines. Rien. Pas de répit, pas de liberté. Mais tu restes à moi, et ton manque devient une preuve de ton amour.",
+            15: "Entretien de la maison 🧽. Tu la nettoie avec soin, car tout ce qui m’appartient doit être parfait.",
+            16: "J’ai une envie. Tu me sers. Ton plaisir n’existe pas. Le mien est ta mission.",
+            17: "Viens me supplier 🙇. Si tu es assez pitoyable, je t’accorde 15 minutes hors de la cage… avant de passer à la cage rouge et électro.",
+            18: "Nuit sadique 😈⚡ : plug gonflable, cage électro connectée, pinces serrées. Et moi qui joue avec ton corps comme avec mon jouet préféré.",
+            19: "Le mot “non” disparaît. Tu n’es que docilité. Refuser, c’est trahir notre contrat.",
+            20: "Sortie en public. Tenue masculine normale… mais dessous : lingerie complète et plug. Ton secret est notre complicité.",
+            21: "Lire un récit BDSM que tu apprécies à voix haute 🔥.",
+            22: "Silence total. Je t’ignore. Tu es invisible, et tu m’aimes assez pour accepter cette absence. Tu seras aveugle et sourd (boules quies et casque anti bruit tout le temps que je veux).",
+            23: "Servitude stricte. Tu fais mes corvées. À chaque tâche réussie, peut-être une caresse… mais jamais plus.",
+            24: "Tu n’existes que pour moi. Tes mots se limitent à : “Oui, Maîtresse ❤️”.",
+            25: "Cage électro portée toute la journée ⚡. Tu vis au rythme de mes envies de t'électrocuter.",
+            26: "Nuit menotté ⛓️. Ton sommeil est un luxe que je t’arrache.",
+            27: "Bondage extrême : attaché, aveuglé, bâillonné, équipé de ton plug gonflable et de ta cage électro… mais aussi privé de tes sens. Le masque à gaz et la privation sensorielle viendront t’enfermer encore plus profondément dans ton rôle. Je t’ignorerai volontairement ⏳. Tu ne sauras pas combien de temps durera ce supplice. L’attente sera ton enfer, mais aussi la plus belle preuve d’amour que tu m’offres en te laissant dépouiller de tout.",
+            28: "Nuit complète avec plug gonflé, cage électro activée, pinces serrées. Tu dors en prison, mais dans mon univers.",
+            29: "Confession écrite ✍️. Tu mets sur papier tes humiliations, tes frustrations, et pourquoi tu m’aimes encore plus à travers elles.",
+            30: "Avant-dernier jour. Humiliation totale : tenue intégrale choisie par moi, cage noire à pointes, plug en place. Tu es mon pantin 🎭. Mon pantin que j’adore.",
+            31: "Journée entière enfermé et équipé de tout : cage, plug gonflable, pinces, talons, corset. Tu me supplieras de jouir… et je déciderai si je t’accorde la libération ou si, par amour cruel, je prolonge ton supplice jusqu’à Noël 🎁."
+        };
+
         const sanctions = {
             lightFrustrations: [
                 "Silence forcé.",
@@ -560,7 +508,6 @@
             const wheel = document.getElementById(`${category}Wheel`);
             const result = document.getElementById(`${category}Result`);
             wheel.classList.add('spinning');
-            
             setTimeout(() => {
                 wheel.classList.remove('spinning');
                 let selected;
@@ -571,20 +518,73 @@
                 }
                 wheel.textContent = selected;
                 result.textContent = `Résultat : ${selected}`;
-            }, 2000); // Synchro avec animation CSS de 2s
+            }, 2000);
         }
 
-        document.querySelectorAll('.task').forEach(task => {
-            task.addEventListener('click', () => {
-                task.classList.toggle('active');
-            });
-        });
+        // Gestion des cases ouvertes avec localStorage
+        const openedDays = JSON.parse(localStorage.getItem('openedDays') || '[]');
 
-        function revealAllTasks() {
-            document.querySelectorAll('.task').forEach(task => {
-                task.classList.add('active');
+        function markDayAsOpened(dayNumber) {
+            if (!openedDays.includes(dayNumber)) {
+                openedDays.push(dayNumber);
+                localStorage.setItem('openedDays', JSON.stringify(openedDays));
+            }
+        }
+
+        // Mise à jour du calendrier en fonction de la date actuelle
+        function updateCalendar() {
+            const today = new Date();
+            const locktoberStart = new Date('2025-10-01T00:00:00+02:00');
+            document.querySelectorAll('.calendar-day:not(.empty)').forEach(day => {
+                const dayNumber = parseInt(day.getAttribute('data-day'));
+                const dayDate = new Date(`2025-10-${dayNumber.toString().padStart(2, '0')}T00:00:00+02:00`);
+                day.classList.remove('disabled', 'visited');
+                day.onclick = null; // Supprimer les anciens écouteurs
+                if (dayDate > today) {
+                    day.classList.add('disabled');
+                } else {
+                    if (openedDays.includes(dayNumber)) {
+                        day.classList.add('visited');
+                    }
+                    day.addEventListener('click', () => {
+                        const task = tasks[dayNumber];
+                        const modal = document.getElementById('taskModal');
+                        const taskContent = document.getElementById('taskContent');
+                        taskContent.textContent = `Jour ${dayNumber} : ${task}`;
+                        modal.style.display = 'flex';
+                        markDayAsOpened(dayNumber);
+                        day.classList.add('visited');
+                    });
+                }
             });
         }
+
+        // Mise à jour de l'affichage de la date et heure
+        function updateTimeDisplay() {
+            const today = new Date();
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: 'Europe/Paris'
+            };
+            const formattedTime = today.toLocaleString('fr-FR', options);
+            document.getElementById('currentTime').textContent = `Date et heure actuelles : ${formattedTime}`;
+        }
+
+        function closeModal() {
+            document.getElementById('taskModal').style.display = 'none';
+        }
+
+        // Initialisation
+        updateCalendar();
+        updateTimeDisplay();
+        setInterval(updateCalendar, 60000); // Vérifie la date toutes les 60 secondes
+        setInterval(updateTimeDisplay, 1000); // Met à jour l'heure toutes les secondes
     </script>
 </body>
 </html>
