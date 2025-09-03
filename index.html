@@ -23,12 +23,32 @@
             background-blend-mode: normal, overlay, multiply;
             background-size: auto, 100px, 200px;
             animation: gloss 5s ease-in-out infinite;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/chain.png');
+            background-size: 150px;
+            opacity: 0.2;
+            animation: chainMove 20s linear infinite;
+            z-index: -1;
         }
 
         @keyframes gloss {
             0% { background-position: 0 0, 0 0, 0 0; }
             50% { background-position: 100px 0, 50px 50px, 0 0; }
             100% { background-position: 0 0, 0 0, 0 0; }
+        }
+
+        @keyframes chainMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 150px 150px; }
         }
 
         .container {
@@ -56,6 +76,20 @@
         h1 img {
             width: 40px;
             margin: 0 10px;
+        }
+
+        .dedication {
+            background: #4a1a1a;
+            border: 2px solid #8b0000;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            color: #e0e0e0;
+            margin: 10px auto;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(139, 0, 0, 0.7);
         }
 
         .current-time {
@@ -128,11 +162,22 @@
             box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
             min-height: 80px;
             text-align: center;
+            position: relative;
         }
 
         .calendar-day:hover {
             background: #5e0e0e;
             box-shadow: 0 0 15px rgba(139, 0, 0, 0.8);
+        }
+
+        .calendar-day img {
+            width: 25px;
+            margin-right: 10px;
+            transition: transform 0.3s;
+        }
+
+        .calendar-day:hover img {
+            transform: scale(1.2) rotate(5deg);
         }
 
         .calendar-day.disabled {
@@ -151,11 +196,6 @@
             background: none;
             box-shadow: none;
             cursor: default;
-        }
-
-        .calendar-day img {
-            width: 25px;
-            margin-right: 10px;
         }
 
         .calendar-day span {
@@ -179,7 +219,8 @@
         }
 
         .modal-content {
-            background: #4a1a1a;
+            background: linear-gradient(45deg, #8b0000, #b22222, #8b0000);
+            background-size: 200%;
             padding: 20px;
             border: 3px solid #8b0000;
             border-radius: 5px;
@@ -189,16 +230,21 @@
             text-align: center;
             max-height: 80vh;
             overflow-y: auto;
+            animation: shine 3s linear infinite;
         }
 
         .modal-content p {
             margin: 10px 0;
             font-size: 1.1em;
             color: #e0e0e0;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            text-shadow: 0 0 5px rgba(139, 0, 0, 0.5);
         }
 
         .modal-content button {
-            background: #8b0000;
+            background: linear-gradient(45deg, #8b0000, #b22222, #8b0000);
+            background-size: 200%;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -208,11 +254,17 @@
             border-radius: 5px;
             transition: background 0.3s, box-shadow 0.3s;
             box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+            animation: shine 3s linear infinite;
         }
 
         .modal-content button:hover {
-            background: #b22222;
             box-shadow: 0 0 15px rgba(139, 0, 0, 0.8);
+        }
+
+        @keyframes shine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .roulette {
@@ -250,7 +302,8 @@
         button {
             display: block;
             margin: 20px auto;
-            background: #8b0000;
+            background: linear-gradient(45deg, #8b0000, #b22222, #8b0000);
+            background-size: 200%;
             color: #fff;
             border: none;
             padding: 12px 24px;
@@ -258,12 +311,12 @@
             font-size: 1.1em;
             cursor: pointer;
             border-radius: 5px;
-            transition: background 0.3s, box-shadow 0.3s;
+            transition: box-shadow 0.3s;
             box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+            animation: shine 3s linear infinite;
         }
 
         button:hover {
-            background: #b22222;
             box-shadow: 0 0 15px rgba(139, 0, 0, 0.8);
         }
 
@@ -292,8 +345,8 @@
                 font-size: 2em;
             }
 
-            .current-time {
-                font-size: 1em;
+            .dedication, .current-time {
+                font-size: 0.9em;
                 padding: 8px;
             }
 
@@ -328,16 +381,13 @@
 <body>
     <div class="container">
         <h1><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"> 🔥 Contrat Locktober 2025 – Amour & Soumission 🔒❤️ <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"></h1>
+        <div class="dedication">
+            <p>À ma Maîtresse adorée, cette expérience est ma soumission totale à votre volonté. Chaque jour, je m’offre à vous avec amour et obéissance. ❤️🔒</p>
+        </div>
         <div class="current-time" id="currentTime">Date et heure actuelles : Chargement...</div>
         <div class="contract">
             <p>Nous, Mamour et Namour, convenons par ce contrat que le mois d’octobre sera placé sous le signe du Locktober intégral.</p>
             <p>Ce contrat est cruel, humiliant et implacable… mais il est aussi une preuve d’amour et de confiance. Je t’impose cette cage, ces règles, ces humiliations, parce que je sais que tu en rêves, que tu en as besoin, et parce que je prends plaisir à te façonner ainsi. Chaque jour de ce mois sera une torture, mais aussi une déclaration d’appartenance et de complicité entre nous ❤️.</p>
-            <p>Ce contrat doit être respecté jusqu’à son terme.<p>
-            <p>Une fois mis en place et signé, nous nous engageons à le suivre intégralement et devrons alors le faire jusqu'au bout.<p>
-            <p>Toutefois, si l’une des pratiques à l’exclusion du port de la cage de chasteté devait être interrompue pour préserver la sécurité de l’un ou de l’autre, un safeword est prévu.<p>
-            <p>Ce safeword est : TURQUOISE.<p>
-            <p>Dès qu’il est prononcé, l’activité en cours cesse immédiatement.<p>
-            </p> Cependant, l’engagement de chasteté demeure inchangé et la cage reste en place jusqu’à la fin convenue.</p>
 
             <h2><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"> Article 1 – Principe fondamental</h2>
             <p>Tu es mon soumis, mon jouet, mon amour. Ton corps et ton plaisir m’appartiennent. Je décide. Tu obéis. Tu souffres pour moi, tu obéis pour moi, tu es à moi. Et dans ta douleur, tu trouveras aussi l’expression de notre amour.</p>
@@ -353,6 +403,12 @@
                 <li>Le bondage, la chasteté, l’humiliation, le plaisir envers moi sont une priorité, de par ce fait, je suis en droit d’utiliser tous les outils nécessaires pour arriver à mes fins. Cela peut inclure le jeu anal, la féssée, l’électro-stimulation, tout types de jouets vibrants, etc …</li>
                 <li>J’ai également le droit de tout faire pour faire jouir le soumis alors qu’il n’y est pas autorisé, chose qui entraînera une sanction !</li>
             </ul>
+            <p>Ce contrat doit être respecté jusqu’à son terme.</p>
+            <p>Une fois mis en place et signé, nous nous engageons à le suivre intégralement et devrons alors le faire jusqu'au bout.</p>
+            <p>Toutefois, si l’une des pratiques à l’exclusion du port de la cage de chasteté devait être interrompue pour préserver la sécurité de l’un ou de l’autre, un safeword est prévu.</p>
+            <p>Ce safeword est : <span style="color: turquoise;">TURQUOISE</span>.</p>
+            <p>Dès qu’il est prononcé, l’activité en cours cesse immédiatement.</p>
+            <p>Cependant, l’engagement de chasteté demeure inchangé et la cage reste en place jusqu’à la fin convenue.</p>
 
             <h2><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"> Article 3 – Programme Officiel Jour par Jour</h2>
             <div class="calendar">
@@ -565,21 +621,30 @@
             });
         }
 
-        // Mise à jour de l'affichage de la date et heure
+        // Mise à jour de l'affichage de la date/heure ou compte à rebours
         function updateTimeDisplay() {
             const today = new Date();
-            const options = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                timeZone: 'Europe/Paris'
-            };
-            const formattedTime = today.toLocaleString('fr-FR', options);
-            document.getElementById('currentTime').textContent = `Date et heure actuelles : ${formattedTime}`;
+            const locktoberStart = new Date('2025-10-01T00:00:00+02:00');
+            const timeElement = document.getElementById('currentTime');
+            if (today < locktoberStart) {
+                const diff = locktoberStart - today;
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                timeElement.textContent = `Compte à rebours jusqu'à Locktober : ${days} jours, ${hours} heures, ${minutes} minutes`;
+            } else {
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    timeZone: 'Europe/Paris'
+                };
+                timeElement.textContent = `Date et heure actuelles : ${today.toLocaleString('fr-FR', options)}`;
+            }
         }
 
         function closeModal() {
@@ -590,8 +655,7 @@
         updateCalendar();
         updateTimeDisplay();
         setInterval(updateCalendar, 60000); // Vérifie la date toutes les 60 secondes
-        setInterval(updateTimeDisplay, 1000); // Met à jour l'heure toutes les secondes
+        setInterval(updateTimeDisplay, 1000); // Met à jour l'heure/compte à rebours toutes les secondes
     </script>
 </body>
 </html>
-
