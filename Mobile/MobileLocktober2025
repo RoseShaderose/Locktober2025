@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrat Locktober 2025 – Amour & Soumission</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #e0e0e0;
+            font-family: 'Crimson Text', serif;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.95), rgba(50, 50, 50, 0.95)),
+                url('https://www.transparenttextures.com/patterns/chain.png');
+            background-blend-mode: normal, overlay;
+            background-size: auto, 80px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/chain.png');
+            background-size: 100px;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 15px;
+            background: rgba(43, 10, 10, 0.9);
+            border: 2px solid #8b0000;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.7);
+        }
+
+        h1 {
+            text-align: center;
+            color: #8b0000;
+            font-family: 'Cinzel', serif;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        h1 img {
+            width: 30px;
+            margin: 0 5px;
+        }
+
+        .dedication {
+            background: #4a1a1a;
+            border: 2px solid #8b0000;
+            border-radius: 5px;
+            padding: 8px;
+            text-align: center;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            color: #e0e0e0;
+            margin: 10px auto;
+            font-size: 0.9em;
+            box-shadow: 0 0 8px rgba(139, 0, 0, 0.7);
+        }
+
+        .current-time {
+            background: #4a1a1a;
+            border: 2px solid #8b0000;
+            border-radius: 5px;
+            padding: 8px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9em;
+            color: #e0e0e0;
+            margin: 10px auto;
+            max-width: 100%;
+            box-shadow: 0 0 8px rgba(139, 0, 0, 0.7);
+        }
+
+        h2 {
+            color: #b22222;
+            font-family: 'Cinzel', serif;
+            font-size: 1.4em;
+            margin-top: 15px;
+            border-bottom: 1px solid #8b0000;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 img {
+            width: 25px;
+            margin-right: 8px;
+        }
+
+        h3 {
+            color: #e0e0e0;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2em;
+            margin-top: 12px;
+        }
+
+        .contract {
+            background: rgba(28, 28, 28, 0.9);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            line-height: 1.5;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .contract p, .contract ul {
+            margin: 8px 0;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .calendar-day {
+            background: #3c0c0c;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 8px rgba(139, 0, 0, 0.5);
+            min-height: 50px;
+            text-align: center;
+            position: relative;
+            font-size: 0.85em;
+        }
+
+        .calendar-day:hover {
+            background: #5e0e0e;
+            box-shadow: 0 0 12px rgba(139, 0, 0, 0.8);
+        }
+
+        .calendar-day img {
+            width: 20px;
+            margin-right: 8px;
+            transition: transform 0.3s;
+        }
+
+        .calendar-day:hover img {
+            transform: scale(1.1);
+        }
+
+        .calendar-day.disabled {
+            background: #2a2a2a;
+            opacity: 0.5;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .calendar-day.visited {
+            border: 2px solid #b8860b;
+            box-shadow: 0 0 8px rgba(184, 134, 11, 0.7);
+        }
+
+        .calendar-day.empty {
+            background: none;
+            box-shadow: none;
+            cursor: default;
+        }
+
+        .calendar-day span {
+            font-weight: bold;
+            color: #e0e0e0;
+            text-align: center;
+            flex: 1;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(45deg, #8b0000, #b22222, #8b0000);
+            background-size: 200%;
+            padding: 15px;
+            border: 2px solid #8b0000;
+            border-radius: 5px;
+            max-width: 90%;
+            width: 100%;
+            box-shadow: 0 0 12px rgba(139, 0, 0, 0.7);
+            text-align: center;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-content p {
+            margin: 8px 0;
+            font-size: 0.95em;
+            color: #e0e0e0;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+        }
+
+        .modal-content button {
+            background: linear-gradient(45deg, #8b0000, #b22222, #8b0000);
+            background-size: 200%;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: box-shadow 0.3s;
+            box-shadow: 0 0 8px rgba(139, 0, 0, 0.5);
+        }
+
+        .modal-content button:hover {
+            box-shadow: 0 0 12px rgba(139, 0, 0, 0.8);
+        }
+
+        .roulette {
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .roulette-wheel {
+            background: #1c1c1c;
+            border: 2px solid #8b0000;
+            border-radius: 50%;
+            padding: 15px;
+            min-height: 100px;
+            width: 100px;
+            margin: 0 auto;
+            font-size: 0.9em;
+            color: #b22222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 0 12px rgba(139, 0, 0, 0.7);
+        }
+
+        .roulette-wheel.spinning {
+            animation: spin 1.5s ease-out;
+        }
+
+        .roulette-result {
+            margin-top: 8px;
+            font-style: italic;
+            color: #b22222;
+            font-size: 0.85em;
+        }
+
+        button {
+            display: block;
+            margin: 15px auto;
+            background: linear-gradient(45deg, #8b0000, #b22222, #8b0000);
+            background-size: 200%;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.95em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: box-shadow 0.3s;
+            box-shadow: 0 0 8px rgba(139, 0, 0, 0.5);
+        }
+
+        button:hover {
+            box-shadow: 0 0 12px rgba(139, 0, 0, 0.8);
+        }
+
+        .signatures {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .signatures p {
+            font-style: italic;
+            color: #b22222;
+            font-size: 0.9em;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(1440deg); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                letter-spacing: 1px;
+            }
+
+            h1 img {
+                width: 25px;
+            }
+
+            .dedication, .current-time {
+                font-size: 0.85em;
+                padding: 6px;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            h2 img {
+                width: 20px;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            .contract {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+
+            .calendar {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 6px;
+            }
+
+            .calendar-day {
+                min-height: 45px;
+                padding: 8px;
+                font-size: 0.8em;
+            }
+
+            .calendar-day img {
+                width: 18px;
+            }
+
+            .roulette-wheel {
+                width: 80px;
+                min-height: 80px;
+                font-size: 0.8em;
+            }
+
+            .modal-content {
+                padding: 10px;
+                max-width: 95%;
+            }
+
+            .modal-content p {
+                font-size: 0.9em;
+            }
+
+            .modal-content button {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .calendar-day {
+                min-height: 40px;
+                font-size: 0.75em;
+            }
+
+            .calendar-day img {
+                width: 16px;
+            }
+
+            .roulette-wheel {
+                width: 70px;
+                min-height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"> 🔥 Contrat Locktober 2025 – Amour & Soumission 🔒❤️ <img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"></h1>
+        <div class="dedication">
+            <p>À ma Maîtresse adorée, cette expérience est ma soumission totale à votre volonté. Chaque jour, je m’offre à vous avec amour et obéissance. ❤️🔒</p>
+        </div>
+        <div class="current-time" id="currentTime">Date et heure actuelles : Chargement...</div>
+        <div class="contract">
+            <p>Nous, Mamour et Namour, convenons par ce contrat que le mois d’octobre sera placé sous le signe du Locktober intégral.</p>
+            <p>Ce contrat est cruel, humiliant et implacable… mais il est aussi une preuve d’amour et de confiance. Je t’impose cette cage, ces règles, ces humiliations, parce que je sais que tu en rêves, que tu en as besoin, et parce que je prends plaisir à te façonner ainsi. Chaque jour de ce mois sera une torture, mais aussi une déclaration d’appartenance et de complicité entre nous ❤️.</p>
+
+            <h2><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"> Article 1 – Principe fondamental</h2>
+            <p>Tu es mon soumis, mon jouet, mon amour. Ton corps et ton plaisir m’appartiennent. Je décide. Tu obéis. Tu souffres pour moi, tu obéis pour moi, tu es à moi. Et dans ta douleur, tu trouveras aussi l’expression de notre amour.</p>
+
+            <h2><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"> Article 2 – Règles générales</h2>
+            <ul>
+                <li>La cage restera fermée durant tout le mois, sauf si je décide d’une ouverture. 🔒</li>
+                <li>Moi seule détiens toutes les clés. 🔑</li>
+                <li>Toute demande se fait à genoux, avec suppliques sincères 🙇.</li>
+                <li>Ton plaisir est interdit. Le mien est absolu.</li>
+                <li>Tu me devras toujours obéissance, respect, tendresse et gratitude, même au cœur des pires humiliations.</li>
+                <li>Chaque jour de privation est une preuve d’amour inversée : je t’impose ta frustration, et tu m’offres ta soumission.</li>
+                <li>Le bondage, la chasteté, l’humiliation, le plaisir envers moi sont une priorité, de par ce fait, je suis en droit d’utiliser tous les outils nécessaires pour arriver à mes fins. Cela peut inclure le jeu anal, la féssée, l’électro-stimulation, tout types de jouets vibrants, etc …</li>
+                <li>J’ai également le droit de tout faire pour faire jouir le soumis alors qu’il n’y est pas autorisé, chose qui entraînera une sanction !</li>
+            </ul>
+            <p>Ce contrat doit être respecté jusqu’à son terme.</p>
+            <p>Une fois mis en place et signé, nous nous engageons à le suivre intégralement et devrons alors le faire jusqu'au bout.</p>
+            <p>Toutefois, si l’une des pratiques à l’exclusion du port de la cage de chasteté devait être interrompue pour préserver la sécurité de l’un ou de l’autre, un safeword est prévu.</p>
+            <p>Ce safeword est : <span style="color: turquoise;">TURQUOISE</span>.</p>
+            <p>Dès qu’il est prononcé, l’activité en cours cesse immédiatement.</p>
+            <p>Cependant, l’engagement de chasteté demeure inchangé et la cage reste en place jusqu’à la fin convenue.</p>
+            <p>La Cage de chasteté peut être retiré la nuit sauf si je le décide, par exemple "tu as désobéis alors tu dormiras avec la cage cette nuit" ou simplement si j'en ai envie</p>
+            <h2><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"> Article 3 – Programme Officiel Jour par Jour</h2>
+            <div class="calendar">
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day" data-day="1"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 1</span></div>
+                <div class="calendar-day" data-day="2"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 2</span></div>
+                <div class="calendar-day" data-day="3"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 3</span></div>
+                <div class="calendar-day" data-day="4"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 4</span></div>
+                <div class="calendar-day" data-day="5"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 5</span></div>
+                <div class="calendar-day" data-day="6"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 6</span></div>
+                <div class="calendar-day" data-day="7"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 7</span></div>
+                <div class="calendar-day" data-day="8"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 8</span></div>
+                <div class="calendar-day" data-day="9"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 9</span></div>
+                <div class="calendar-day" data-day="10"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 10</span></div>
+                <div class="calendar-day" data-day="11"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 11</span></div>
+                <div class="calendar-day" data-day="12"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 12</span></div>
+                <div class="calendar-day" data-day="13"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 13</span></div>
+                <div class="calendar-day" data-day="14"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 14</span></div>
+                <div class="calendar-day" data-day="15"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 15</span></div>
+                <div class="calendar-day" data-day="16"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 16</span></div>
+                <div class="calendar-day" data-day="17"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 17</span></div>
+                <div class="calendar-day" data-day="18"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 18</span></div>
+                <div class="calendar-day" data-day="19"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 19</span></div>
+                <div class="calendar-day" data-day="20"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 20</span></div>
+                <div class="calendar-day" data-day="21"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 21</span></div>
+                <div class="calendar-day" data-day="22"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 22</span></div>
+                <div class="calendar-day" data-day="23"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 23</span></div>
+                <div class="calendar-day" data-day="24"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 24</span></div>
+                <div class="calendar-day" data-day="25"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 25</span></div>
+                <div class="calendar-day" data-day="26"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 26</span></div>
+                <div class="calendar-day" data-day="27"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 27</span></div>
+                <div class="calendar-day" data-day="28"><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"><span>Jour 28</span></div>
+                <div class="calendar-day" data-day="29"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"><span>Jour 29</span></div>
+                <div class="calendar-day" data-day="30"><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"><span>Jour 30</span></div>
+                <div class="calendar-day" data-day="31"><img src="https://cdn-icons-png.flaticon.com/512/235/235821.png" alt="Menottes"><span>Jour 31</span></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+            </div>
+            <p><em>Le programme n’est en aucun cas définitif et peut être amené à changer si la Maîtresse le souhaite.</em></p>
+
+            <h2><img src="https://cdn-icons-png.flaticon.com/512/7136/7136194.png" alt="Fouet"> Article 4 – Sanctions</h2>
+            <p>Toute désobéissance, toute faute ou tout manquement à ton rôle entraînera une sanction. Ces sanctions seront toujours une preuve de mon amour sadique, et un rappel que ton corps et ton plaisir ne t’appartiennent pas. Elles suivront une progression, du simple rappel humiliant jusqu’au supplice cruel.</p>
+            <div class="roulette">
+                <h3>Frustrations légères</h3>
+                <div class="roulette-wheel" id="lightFrustrationsWheel">Tournez pour découvrir...</div>
+                <p class="roulette-result" id="lightFrustrationsResult"></p>
+                <button onclick="spinWheel('lightFrustrations')">Tourner</button>
+            </div>
+            <div class="roulette">
+                <h3>Tortures psychologiques</h3>
+                <div class="roulette-wheel" id="psychologicalTorturesWheel">Tournez pour découvrir...</div>
+                <p class="roulette-result" id="psychologicalTorturesResult"></p>
+                <button onclick="spinWheel('psychologicalTortures')">Tourner</button>
+            </div>
+            <div class="roulette">
+                <h3>Supplices ultimes</h3>
+                <div class="roulette-wheel" id="ultimatePunishmentsWheel">Tournez pour découvrir...</div>
+                <p class="roulette-result" id="ultimatePunishmentsResult"></p>
+                <button onclick="spinWheel('ultimatePunishments')">Tourner</button>
+            </div>
+            <p>Et si tu oses éjaculer sans autorisation, tu t’exposeras à la peine la plus cruelle : ton enfermement sera prolongé, et tu seras directement enchaîné au No Nut November, sans aucune jouissance possible.</p>
+            <p>La limite de ce contrat prendra fin quand je le souhaiterais et pourrait rallonger le temps autant que je le souhaite, aucune limite.</p>
+
+            <h2><img src="https://cdn-icons-png.flaticon.com/512/1828/1828429.png" alt="Cadenas"> Article 5 – Récompenses</h2>
+            <p>Si tu obéis avec amour, si tu te livres totalement à ma volonté, je peux, peut-être, t’accorder une récompense. Ces récompenses sont rares, précieuses… et parfois piégées. Car même dans le plaisir, je garde le contrôle.</p>
+            <div class="roulette">
+                <h3>Récompenses possibles</h3>
+                <div class="roulette-wheel" id="rewardsWheel">Tournez pour découvrir...</div>
+                <p class="roulette-result" id="rewardsResult"></p>
+                <button onclick="spinWheel('rewards')">Tourner</button>
+            </div>
+            <p>Ces récompenses ne sont pas un droit. Elles sont mon cadeau, mon caprice, ma façon d’aimer à ma manière cruelle. Tu as le droit de jouir que quand je t’y autorise, et si une récompense te laisse jouir alors que je ne l’ai pas autorisé, alors une sanction s’appliquera. Chaque récompense, même piégée, sera pour toi une bénédiction.</p>
+
+            <h2><img src="https://static.thenounproject.com/png/1671782-200.png" alt="Bâillon"> Article 6 – Amour & Appartenance</h2>
+            <p>Ce contrat est sadique, cruel, frustrant. Mais il est aussi une déclaration d’amour. Chaque humiliation est ma façon de t’aimer. Chaque privation est ma façon de te rappeler que tu es à moi. Chaque larme est une preuve que nous sommes complices jusque dans la douleur.</p>
+            <p>Tu es mon soumis, mon amour, mon jouet. 💕 Et même dans tes chaînes, tu restes mon bien-aimé.</p>
+
+            <div class="signatures">
+                <h2>Signatures ✍️</h2>
+                <p>La Maîtresse, détentrice des clés et de ton cœur : Namour</p>
+                <p>Le soumis, prisonnier et amant dévoué : Mamour</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="taskModal">
+        <div class="modal-content">
+            <p id="taskContent"></p>
+            <button onclick="closeModal()">Fermer</button>
+        </div>
+    </div>
+
+    <script>
+        const tasks = {
+            1: "Mise en place de la cage 🔒. Moi seule détiens les clés. Une photo souvenir immortalisera ton entrée dans ce premier Locktober que tu m’offres par amour.",
+            2: "Silence et frustration. Aucune stimulation. Tu apprends à aimer le vide que je t’impose.",
+            3: "À partir d’aujourd’hui et jusqu’à la fin : string obligatoire 👙. Même à l’extérieur. Ton inconfort est mon plaisir.",
+            4: "Tu prends soin de moi. Massages, attentions, tendresse. Tu remercies celle qui t’impose cette cage, avec amour et gratitude.",
+            5: "Une heure de porno. Tu regardes, tu brûles de désir 🤤… mais tu ne touches pas. Ton amour se prouve dans la frustration.",
+            6: "Permission de te masturber devant tes vidéos préférer… sans éjaculer. Et si je veux, à mes pieds. Pour que tu n’oublies pas que tu m’appartiens.",
+            7: "Une semaine déjà. Pas de récompense 😈. Tu me pénètres avec le gode-ceinture, toi restant enfermé et avec le petit plug. Tu me donnes tout, je ne t’accorde rien.",
+            8: "Retrait de la cage… uniquement pour la remplacer par une plus petite, en métal. Plus serrée. Plus cruelle. Plus intime.",
+            9: "Sortie en public 🚶. Tu marches, tu souris… mais ta cage t’accompagne. Et moi, je savoure ton inconfort.",
+            10: "À partir de ce jour, dès que les enfants partent à l'école, chaque matin : tenue féminine choisie par moi. Talons, lingerie, corset confortable… et quand les enfants rentrent, tu gardes dessous ce qui peut rester caché toute la journée. Tu es mon jouet, en privé comme en secret.",
+            11: "Rédaction d’un texte ✍️ : tes fantasmes les plus noirs, les plus secrets. Tu m’ouvres ton âme, car je suis ton unique confidente.",
+            12: "Plug anal taille S porté toute la journée et toute la nuit 🍑. Ton amour se mesure à ton endurance.",
+            13: "Bondage. Tu t’attaches et tu attends. Plug M imposé. Je décide de quand je te libère, peut-être après avoir joué, peut-être plus tard. Et tu me remercieras.",
+            14: "Deux semaines. Rien. Pas de répit, pas de liberté. Mais tu restes à moi, et ton manque devient une preuve de ton amour.",
+            15: "Entretien de la maison 🧽. Tu la nettoie avec soin, tenue de soubrette et talon, le corset devra être un peu plus serrer à partir de ce jour, plug gonflable libre d'accès car tout ce qui m’appartient doit être parfait.",
+            16: "J’ai une envie. Tu me sers. Ton plaisir n’existe pas. Le mien est ta mission.",
+            17: "Viens me supplier 🙇. Si tu es assez pitoyable, je t’accorde 15 minutes hors de la cage… avant de passer à la cage rouge et électro.",
+            18: "Nuit sadique 😈⚡ : plug gonflable, cage électro connectée, pinces serrées. Et moi qui joue avec ton corps comme avec mon jouet préféré.",
+            19: "Le mot “non” disparaît. Tu n’es que docilité. Refuser, c’est trahir notre contrat.",
+            20: "Sortie en public. Tenue masculine normale… mais dessous : lingerie complète et plug S. Ton secret est notre complicité.",
+            21: "Lire un récit BDSM que tu apprécies à voix haute 🔥.",
+            22: "Silence total. Je t’ignore. Tu es invisible, et tu m’aimes assez pour accepter cette absence. Tu seras aveugle et sourd (boules quies et casque anti bruit tout le temps que je veux).",
+            23: "Servitude stricte. Tu fais mes corvées en soubrette et à partir de ce jour corset serré très fort. À chaque tâche réussie, peut-être une caresse… mais jamais plus.",
+            24: "Tu n’existes que pour moi. Tes mots se limitent à : “Oui, Maîtresse ❤️”.",
+            25: "Cage électro portée toute la journée ⚡. Tu vis au rythme de mes envies de t'électrocuter.",
+            26: "Nuit menotté ⛓️. Ton sommeil est un luxe que je t’arrache.",
+            27: "Ton rêve dans un cauchemard : bondage intégral, tu seras attaché au quatres coins du lit, bras et jambes écartés, tu auras ta cage électro, tes pads électro et ton plug gonflable avec lesquelle je pourrais m'amuser, tu seras privé de tes sens, équipé de ta cagoule et de ton masque a gaz qui te rend aveugle avec la bouteille fixé, bien entendu, tu auras les boules quies sous la cagoule et le casque anti bruit par dessus, tu auras tes ballet boots aux pieds, et tes chaussettes en simili cuir sur tes mains, le gode ceinture sera sur toi, je pourrais me donner tout le plaisir dont j'ai envie en me tenant à tes pinces a tétons et toi tu seras mon petit jouet, ne pense pas rester passif, car juste quelques pressions sur le plug ou un peu de puissance dans l’électro pourront te montrer que tu es trop mou. La privation sensorielle, l’immobilité et l’impuissance viendront t’enfermer encore plus profondément dans ton rôle. Tu resteras ainsi au moins deux heures voir plus si l'envie me prend de rejouer avec toi après une pause ⏳. Tu ne sauras pas combien de temps durera ce supplice. L’attente sera ton enfer, mais aussi la plus belle preuve d’amour que tu m’offres en te laissant dépouiller de tout.",
+            28: "Nuit complète avec plug gonflé, cage électro activée, pinces serrées. Tu dors en prison, mais dans mon univers.",
+            29: "Confession écrite ✍️. Tu mets sur documents ton ressentis, tes humiliations, tes frustrations, sur ce mois et pourquoi tu m’aimes encore plus à travers elles.",
+            30: "Avant-dernier jour. Humiliation totale : tenue intégrale choisie par moi corset serrer au maximum jusqu'à la fin du mois, cage noire à pointes, plug M en place. Tu es mon pantin 🎭. Mon pantin que j’adore.",
+            31: "Journée entière enfermé et équipé de tout : cage, plug gonflable, pinces, talons, corset. Tu me supplieras de jouir… et je déciderai si je t’accorde la libération ou si, par amour cruel, je prolonge ton supplice en Novembre 🎁."
+        };
+
+        const sanctions = {
+            lightFrustrations: [
+                "Silence forcé.",
+                "Position imposée (à genoux, mains derrière le dos, immobile).",
+                "Sommeil inconfortable : tu dors attaché ou à mes pieds."
+            ],
+            psychologicalTortures: [
+                "Attente ligoté ou cagoulé, sans savoir quand je viendrai.",
+                "Lettre d’excuse et explication de la faute.",
+                "Immobilisation prolongée pendant que je m’occupe autrement."
+            ],
+            ultimatePunishments: [
+                "Chasteté prolongée (chaque faute rallonge ton enfermement).",
+                "Privation sensorielle complète (masque, casque, gants).",
+                "Double contrainte (plug gonflé + cage électro, ou cage + pinces).",
+                "Récompense annulée (tu pensais obtenir un privilège… il disparaît pour punir ta faiblesse)."
+            ]
+        };
+
+        const rewards = [
+            "Libération autorisée de quelques heures.",
+            "Rapport sexuel autorisé, mais interdiction d’éjaculer (si tu échoues → sanction).",
+            "Orgasme en cage (jouir enfermé, douloureux et humiliant).",
+            "Autorisation de se masturber… devant moi, mais sans jamais jouir.",
+            "Soirée romantique inversée : dîner ou moment tendre en couple, mais toi en lingerie ou plug dessous.",
+            "Libération totale temporaire (cage retirée pour une nuit, avant ton retour en captivité)."
+        ];
+
+        function spinWheel(category) {
+            const wheel = document.getElementById(`${category}Wheel`);
+            const result = document.getElementById(`${category}Result`);
+            wheel.classList.add('spinning');
+            setTimeout(() => {
+                wheel.classList.remove('spinning');
+                let selected;
+                if (category === 'rewards') {
+                    selected = rewards[Math.floor(Math.random() * rewards.length)];
+                } else {
+                    selected = sanctions[category][Math.floor(Math.random() * sanctions[category].length)];
+                }
+                wheel.textContent = selected;
+                result.textContent = `Résultat : ${selected}`;
+            }, 1500);
+        }
+
+        const openedDays = JSON.parse(localStorage.getItem('openedDays') || '[]');
+
+        function markDayAsOpened(dayNumber) {
+            if (!openedDays.includes(dayNumber)) {
+                openedDays.push(dayNumber);
+                localStorage.setItem('openedDays', JSON.stringify(openedDays));
+            }
+        }
+
+        function updateCalendar() {
+            const today = new Date();
+            const locktoberStart = new Date('2025-10-01T00:00:00+02:00');
+            document.querySelectorAll('.calendar-day:not(.empty)').forEach(day => {
+                const dayNumber = parseInt(day.getAttribute('data-day'));
+                const dayDate = new Date(`2025-10-${dayNumber.toString().padStart(2, '0')}T00:00:00+02:00`);
+                day.classList.remove('disabled', 'visited');
+                day.onclick = null;
+                if (dayDate > today) {
+                    day.classList.add('disabled');
+                } else {
+                    if (openedDays.includes(dayNumber)) {
+                        day.classList.add('visited');
+                    }
+                    day.addEventListener('click', () => {
+                        const task = tasks[dayNumber];
+                        const modal = document.getElementById('taskModal');
+                        const taskContent = document.getElementById('taskContent');
+                        taskContent.textContent = `Jour ${dayNumber} : ${task}`;
+                        modal.style.display = 'flex';
+                        markDayAsOpened(dayNumber);
+                        day.classList.add('visited');
+                    });
+                }
+            });
+        }
+
+        function updateTimeDisplay() {
+            const today = new Date();
+            const locktoberStart = new Date('2025-10-01T00:00:00+02:00');
+            const timeElement = document.getElementById('currentTime');
+            if (today < locktoberStart) {
+                const diff = locktoberStart - today;
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                timeElement.textContent = `Compte à rebours jusqu'à Locktober : ${days} jours, ${hours} heures, ${minutes} minutes`;
+            } else {
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    timeZone: 'Europe/Paris'
+                };
+                timeElement.textContent = `Date et heure actuelles : ${today.toLocaleString('fr-FR', options)}`;
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('taskModal').style.display = 'none';
+        }
+
+        updateCalendar();
+        updateTimeDisplay();
+        setInterval(updateCalendar, 60000);
+        setInterval(updateTimeDisplay, 1000);
+    </script>
+</body>
+</html>
