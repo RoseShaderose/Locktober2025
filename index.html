@@ -6,7 +6,7 @@
 <title>Contrat de Soumission — Locktober 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
-
+ 
   :root {
     --bg: #0a0a0f;
     --bg2: #12121a;
@@ -28,9 +28,9 @@
     --info: #1a4a6b;
     --info2: #4a8ab8;
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   body {
     background: var(--bg);
     color: var(--text);
@@ -39,12 +39,12 @@
     line-height: 1.7;
     min-height: 100vh;
   }
-
+ 
   /* ── SCROLLBAR ── */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
-
+ 
   /* ══════════════════════════════
      HEADER / CONTRAT
   ══════════════════════════════ */
@@ -54,7 +54,7 @@
     padding: 3rem 2rem 0;
     text-align: center;
   }
-
+ 
   .seal {
     width: 80px; height: 80px;
     border: 2px solid var(--gold);
@@ -65,7 +65,7 @@
     color: var(--gold);
     background: radial-gradient(circle, rgba(201,168,76,0.08), transparent);
   }
-
+ 
   .contract-title {
     font-family: 'Cinzel', serif;
     font-size: 1.8rem;
@@ -74,7 +74,7 @@
     margin-bottom: 0.3rem;
     text-shadow: 0 0 40px rgba(201,168,76,0.3);
   }
-
+ 
   .contract-sub {
     font-size: 0.9rem;
     color: var(--muted);
@@ -82,7 +82,7 @@
     text-transform: uppercase;
     margin-bottom: 2.5rem;
   }
-
+ 
   .contract-preamble {
     border: 1px solid var(--border);
     border-left: 3px solid var(--gold);
@@ -96,7 +96,7 @@
     margin-bottom: 1.5rem;
     border-radius: 4px;
   }
-
+ 
   .contract-preamble .drop {
     font-family: 'Cinzel', serif;
     font-size: 2.8rem;
@@ -106,14 +106,14 @@
     margin-top: 8px;
     color: var(--gold);
   }
-
+ 
   .parties {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin-bottom: 1.5rem;
   }
-
+ 
   .party-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -121,10 +121,10 @@
     padding: 1.2rem;
     text-align: center;
   }
-
+ 
   .party-card.domme { border-top: 3px solid var(--gold); }
   .party-card.sub { border-top: 3px solid var(--red2); }
-
+ 
   .party-role {
     font-family: 'Cinzel', serif;
     font-size: 0.75rem;
@@ -134,20 +134,20 @@
   }
   .party-card.domme .party-role { color: var(--gold); }
   .party-card.sub .party-role { color: var(--red3); }
-
+ 
   .party-name {
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--text);
     margin-bottom: 0.3rem;
   }
-
+ 
   .party-desc {
     font-size: 0.82rem;
     color: var(--muted);
     font-style: italic;
   }
-
+ 
   .articles {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -156,7 +156,7 @@
     margin-bottom: 1.5rem;
     text-align: left;
   }
-
+ 
   .articles h3 {
     font-family: 'Cinzel', serif;
     font-size: 0.8rem;
@@ -167,7 +167,7 @@
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border);
   }
-
+ 
   .article {
     margin-bottom: 0.9rem;
     padding-left: 1rem;
@@ -176,7 +176,7 @@
     color: var(--text);
     line-height: 1.7;
   }
-
+ 
   .article strong {
     font-family: 'Cinzel', serif;
     font-size: 0.75rem;
@@ -185,13 +185,13 @@
     display: block;
     margin-bottom: 0.2rem;
   }
-
+ 
   .divider {
     border: none;
     border-top: 1px solid var(--border);
     margin: 2rem 0;
   }
-
+ 
   /* ══════════════════════════════
      STATS
   ══════════════════════════════ */
@@ -200,7 +200,7 @@
     margin: 0 auto;
     padding: 0 2rem 3rem;
   }
-
+ 
   .section-heading {
     font-family: 'Cinzel', serif;
     font-size: 0.75rem;
@@ -214,14 +214,14 @@
     align-items: center;
     gap: 0.75rem;
   }
-
+ 
   .section-heading::after {
     content: '';
     flex: 1;
     height: 1px;
     background: var(--border);
   }
-
+ 
   .countdown-banner {
     background: linear-gradient(135deg, var(--bg3), var(--bg4));
     border: 1px solid var(--border2);
@@ -230,7 +230,7 @@
     text-align: center;
     margin-bottom: 1.5rem;
   }
-
+ 
   .countdown-banner .big {
     font-family: 'Cinzel', serif;
     font-size: 2.5rem;
@@ -239,21 +239,21 @@
     line-height: 1;
     margin-bottom: 0.3rem;
   }
-
+ 
   .countdown-banner .label {
     font-size: 0.82rem;
     color: var(--muted);
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
-
+ 
   .stats-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
     margin-bottom: 1.5rem;
   }
-
+ 
   .stat-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -261,7 +261,7 @@
     padding: 1rem;
     text-align: center;
   }
-
+ 
   .stat-num {
     font-family: 'Cinzel', serif;
     font-size: 1.8rem;
@@ -270,14 +270,14 @@
     line-height: 1;
     margin-bottom: 0.3rem;
   }
-
+ 
   .stat-label {
     font-size: 0.72rem;
     color: var(--muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-
+ 
   .prog-wrap {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -285,7 +285,7 @@
     padding: 1.25rem 1.5rem;
     margin-bottom: 1.5rem;
   }
-
+ 
   .prog-label {
     display: flex;
     justify-content: space-between;
@@ -293,21 +293,21 @@
     color: var(--muted);
     margin-bottom: 0.6rem;
   }
-
+ 
   .prog-track {
     background: var(--bg4);
     border-radius: 2px;
     height: 6px;
     overflow: hidden;
   }
-
+ 
   .prog-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--red), var(--gold));
     border-radius: 2px;
     transition: width 0.8s ease;
   }
-
+ 
   /* ══════════════════════════════
      PHASE TABS
   ══════════════════════════════ */
@@ -317,7 +317,7 @@
     flex-wrap: wrap;
     margin-bottom: 1rem;
   }
-
+ 
   .phase-tab {
     font-family: 'Cinzel', serif;
     font-size: 0.72rem;
@@ -330,10 +330,10 @@
     border-radius: 2px;
     transition: all 0.2s;
   }
-
+ 
   .phase-tab:hover { border-color: var(--gold); color: var(--text); }
   .phase-tab.active { border-color: var(--gold); background: rgba(201,168,76,0.1); color: var(--gold2); }
-
+ 
   .phase-info-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -342,20 +342,20 @@
     padding: 1rem 1.25rem;
     margin-bottom: 1rem;
   }
-
+ 
   .phase-info-card h3 {
     font-family: 'Cinzel', serif;
     font-size: 0.95rem;
     color: var(--gold2);
     margin-bottom: 0.3rem;
   }
-
+ 
   .phase-info-card p {
     font-size: 0.88rem;
     color: var(--muted);
     font-style: italic;
   }
-
+ 
   /* ══════════════════════════════
      LEGEND
   ══════════════════════════════ */
@@ -367,20 +367,20 @@
     font-size: 0.78rem;
     color: var(--muted);
   }
-
+ 
   .leg-item { display: flex; align-items: center; gap: 5px; }
-
+ 
   .leg-dot {
     width: 8px; height: 8px;
     border-radius: 50%;
     flex-shrink: 0;
   }
-
+ 
   .ld-cage { background: var(--red3); }
   .ld-plug { background: var(--accent2); }
   .ld-linge { background: var(--gold); }
   .ld-couple { background: var(--success2); }
-
+ 
   /* ══════════════════════════════
      DAY GRID
   ══════════════════════════════ */
@@ -390,7 +390,7 @@
     gap: 0.5rem;
     margin-bottom: 2rem;
   }
-
+ 
   .day-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -400,28 +400,28 @@
     transition: all 0.18s;
     position: relative;
   }
-
+ 
   .day-card:hover:not(.locked) {
     border-color: var(--gold);
     background: var(--bg3);
   }
-
+ 
   .day-card.today {
     border-color: var(--gold);
     background: rgba(201,168,76,0.07);
     box-shadow: inset 0 0 0 1px rgba(201,168,76,0.2);
   }
-
+ 
   .day-card.completed {
     border-color: rgba(76,168,94,0.4);
     background: rgba(76,168,94,0.05);
   }
-
+ 
   .day-card.locked {
     opacity: 0.3;
     cursor: default;
   }
-
+ 
   .dc-num {
     font-family: 'Cinzel', serif;
     font-size: 0.6rem;
@@ -429,38 +429,38 @@
     color: var(--muted);
     margin-bottom: 2px;
   }
-
+ 
   .dc-date {
     font-size: 0.78rem;
     color: var(--text);
     margin-bottom: 5px;
     line-height: 1.3;
   }
-
+ 
   .dc-badges {
     display: flex;
     gap: 3px;
     flex-wrap: wrap;
   }
-
+ 
   .dc-badge {
     width: 8px; height: 8px;
     border-radius: 50%;
     flex-shrink: 0;
   }
-
+ 
   .dcb-cage { background: var(--red3); }
   .dcb-plug { background: var(--accent2); }
   .dcb-linge { background: var(--gold); }
   .dcb-couple { background: var(--success2); }
-
+ 
   .dc-check {
     position: absolute;
     top: 5px; right: 7px;
     color: var(--success2);
     font-size: 0.85rem;
   }
-
+ 
   .dc-today-tag {
     position: absolute;
     top: 4px; right: 6px;
@@ -470,7 +470,7 @@
     color: var(--gold);
     text-transform: uppercase;
   }
-
+ 
   /* ══════════════════════════════
      MODAL
   ══════════════════════════════ */
@@ -484,9 +484,9 @@
     justify-content: center;
     padding: 1rem;
   }
-
+ 
   .modal-bg.open { display: flex; }
-
+ 
   .modal-box {
     background: var(--bg2);
     border: 1px solid var(--border2);
@@ -499,13 +499,13 @@
     overflow-y: auto;
     position: relative;
   }
-
+ 
   .modal-seal {
     font-size: 1.5rem;
     text-align: center;
     margin-bottom: 0.5rem;
   }
-
+ 
   .modal-day-title {
     font-family: 'Cinzel', serif;
     font-size: 1rem;
@@ -514,7 +514,7 @@
     margin-bottom: 0.2rem;
     letter-spacing: 0.05em;
   }
-
+ 
   .modal-day-date {
     font-size: 0.82rem;
     color: var(--muted);
@@ -524,7 +524,7 @@
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--border);
   }
-
+ 
   .modal-decree {
     font-size: 0.8rem;
     color: var(--muted);
@@ -533,7 +533,7 @@
     margin-bottom: 1rem;
     letter-spacing: 0.05em;
   }
-
+ 
   .task-item {
     display: flex;
     gap: 0.75rem;
@@ -545,16 +545,16 @@
     line-height: 1.55;
     border-left: 2px solid transparent;
   }
-
+ 
   .task-item .ti { flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
-
+ 
   .ti-cage { background: rgba(196,48,48,0.1); border-left-color: var(--red3); }
   .ti-plug { background: rgba(107,63,160,0.12); border-left-color: var(--accent2); }
   .ti-lingerie { background: rgba(201,168,76,0.08); border-left-color: var(--gold); }
   .ti-bondage { background: rgba(26,74,107,0.2); border-left-color: var(--info2); }
   .ti-couple { background: rgba(45,107,58,0.12); border-left-color: var(--success2); }
   .ti-info { background: transparent; border-left-color: var(--muted); color: var(--muted); font-style: italic; font-size: 0.82rem; }
-
+ 
   .modal-close {
     position: absolute;
     top: 1rem; right: 1rem;
@@ -566,9 +566,9 @@
     font-family: 'EB Garamond', serif;
     transition: color 0.2s;
   }
-
+ 
   .modal-close:hover { color: var(--gold); }
-
+ 
   .done-btn {
     width: 100%;
     margin-top: 1.25rem;
@@ -584,10 +584,10 @@
     cursor: pointer;
     transition: all 0.2s;
   }
-
+ 
   .done-btn:hover { background: rgba(139,32,32,0.35); }
   .done-btn.done { background: rgba(45,107,58,0.2); border-color: rgba(76,168,94,0.4); color: var(--success2); }
-
+ 
   /* ══════════════════════════════
      FOOTER / SIGNATURES
   ══════════════════════════════ */
@@ -596,14 +596,14 @@
     margin: 0 auto;
     padding: 0 2rem 3rem;
   }
-
+ 
   .signatures {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-top: 2rem;
   }
-
+ 
   .sig-block {
     text-align: center;
     padding: 1.5rem 1rem 1rem;
@@ -611,22 +611,22 @@
     border-radius: 4px;
     background: var(--bg2);
   }
-
+ 
   .sig-line {
     width: 70%;
     border-top: 1px solid var(--border2);
     margin: 1rem auto 0.5rem;
   }
-
+ 
   .sig-name {
     font-family: 'Cinzel', serif;
     font-size: 0.75rem;
     letter-spacing: 0.15em;
     color: var(--gold);
   }
-
+ 
   .sig-role { font-size: 0.78rem; color: var(--muted); font-style: italic; }
-
+ 
   .contract-seal-bottom {
     text-align: center;
     margin-top: 2rem;
@@ -635,13 +635,13 @@
     border-radius: 4px;
     background: var(--bg2);
   }
-
+ 
   .contract-seal-bottom .big-seal {
     font-size: 3rem;
     display: block;
     margin-bottom: 0.5rem;
   }
-
+ 
   .contract-seal-bottom p {
     font-family: 'Cinzel', serif;
     font-size: 0.72rem;
@@ -649,7 +649,7 @@
     color: var(--muted);
     text-transform: uppercase;
   }
-
+ 
   /* ══════════════════════════════
      PUNITIONS
   ══════════════════════════════ */
@@ -661,7 +661,7 @@
     padding: 1.5rem 2rem;
     margin-bottom: 1.5rem;
   }
-
+ 
   .punition-intro {
     font-size: 0.88rem;
     color: var(--muted);
@@ -671,14 +671,14 @@
     border-left: 2px solid var(--red);
     padding-left: 0.85rem;
   }
-
+ 
   .punition-tiers {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.6rem;
     margin-bottom: 1.25rem;
   }
-
+ 
   .tier-badge {
     text-align: center;
     padding: 0.5rem 0.4rem;
@@ -687,22 +687,22 @@
     font-family: 'Cinzel', serif;
     letter-spacing: 0.08em;
   }
-
+ 
   .tier-1 { background: rgba(180,140,80,0.1); border: 1px solid rgba(180,140,80,0.3); color: var(--gold); }
   .tier-2 { background: rgba(139,32,32,0.15); border: 1px solid rgba(196,48,48,0.4); color: var(--red3); }
   .tier-3 { background: rgba(80,0,0,0.3); border: 1px solid rgba(200,20,20,0.5); color: #ff6b6b; }
-
+ 
   .tier-badge .tier-icon { font-size: 1.2rem; display: block; margin-bottom: 3px; }
   .tier-badge .tier-name { display: block; }
   .tier-badge .tier-desc { font-family: 'EB Garamond', serif; font-size: 0.7rem; color: var(--muted); display: block; margin-top: 2px; font-style: italic; letter-spacing: 0; }
-
+ 
   .punition-btns {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0.75rem;
     margin-bottom: 1.25rem;
   }
-
+ 
   .punition-btn {
     padding: 0.75rem 0.5rem;
     border-radius: 3px;
@@ -716,30 +716,30 @@
     text-align: center;
     line-height: 1.4;
   }
-
+ 
   .punition-btn:active { transform: scale(0.97); }
-
+ 
   .pbtn-1 {
     background: rgba(180,140,80,0.08);
     border-color: rgba(180,140,80,0.35);
     color: var(--gold);
   }
   .pbtn-1:hover { background: rgba(180,140,80,0.18); }
-
+ 
   .pbtn-2 {
     background: rgba(139,32,32,0.12);
     border-color: rgba(196,48,48,0.45);
     color: var(--red3);
   }
   .pbtn-2:hover { background: rgba(139,32,32,0.25); }
-
+ 
   .pbtn-3 {
     background: rgba(80,0,0,0.25);
     border-color: rgba(200,20,20,0.5);
     color: #ff6b6b;
   }
   .pbtn-3:hover { background: rgba(100,0,0,0.4); }
-
+ 
   .punition-result {
     display: none;
     border-radius: 3px;
@@ -747,11 +747,11 @@
     margin-top: 0.75rem;
     animation: fadeIn 0.3s ease;
   }
-
+ 
   .punition-result.visible { display: block; }
-
+ 
   @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
-
+ 
   .pr-tier {
     font-family: 'Cinzel', serif;
     font-size: 0.65rem;
@@ -759,19 +759,19 @@
     text-transform: uppercase;
     margin-bottom: 0.4rem;
   }
-
+ 
   .pr-title {
     font-family: 'Cinzel', serif;
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
   }
-
+ 
   .pr-desc {
     font-size: 0.88rem;
     line-height: 1.65;
     font-style: italic;
   }
-
+ 
   .pr-duration {
     font-size: 0.78rem;
     margin-top: 0.5rem;
@@ -779,19 +779,19 @@
     font-family: 'Cinzel', serif;
     letter-spacing: 0.08em;
   }
-
+ 
   .pr-result-1 { background: rgba(180,140,80,0.08); border-left: 3px solid var(--gold); }
   .pr-result-1 .pr-tier { color: var(--gold); }
   .pr-result-1 .pr-title { color: var(--gold2); }
-
+ 
   .pr-result-2 { background: rgba(139,32,32,0.1); border-left: 3px solid var(--red2); }
   .pr-result-2 .pr-tier { color: var(--red3); }
   .pr-result-2 .pr-title { color: var(--red3); }
-
+ 
   .pr-result-3 { background: rgba(80,0,0,0.25); border-left: 3px solid #cc0000; }
   .pr-result-3 .pr-tier { color: #ff6b6b; }
   .pr-result-3 .pr-title { color: #ff8888; }
-
+ 
   .pr-dismiss {
     margin-top: 0.85rem;
     background: none;
@@ -806,15 +806,15 @@
     transition: all 0.2s;
     text-transform: uppercase;
   }
-
+ 
   .pr-dismiss:hover { border-color: var(--red); color: var(--red3); }
-
+ 
   .punition-log-wrap {
     margin-top: 1rem;
     border-top: 1px solid var(--border);
     padding-top: 0.75rem;
   }
-
+ 
   .punition-log-title {
     font-family: 'Cinzel', serif;
     font-size: 0.65rem;
@@ -823,13 +823,13 @@
     text-transform: uppercase;
     margin-bottom: 0.5rem;
   }
-
+ 
   .punition-log-empty {
     font-size: 0.8rem;
     color: var(--muted);
     font-style: italic;
   }
-
+ 
   .log-entry {
     font-size: 0.8rem;
     padding: 0.4rem 0.7rem;
@@ -841,13 +841,13 @@
     gap: 0.75rem;
     align-items: baseline;
   }
-
+ 
   .log-date { color: var(--muted); font-size: 0.72rem; flex-shrink: 0; }
   .log-name { color: var(--text); flex: 1; }
   .log-t1 { border-left-color: var(--gold); }
   .log-t2 { border-left-color: var(--red3); }
   .log-t3 { border-left-color: #ff6b6b; }
-
+ 
   .log-clear {
     font-size: 0.7rem;
     background: none;
@@ -861,7 +861,7 @@
     margin-top: -1.5rem;
   }
   .log-clear:hover { color: var(--red3); }
-
+ 
   /* ══════════════════════════════
      RESPONSIVE
   ══════════════════════════════ */
@@ -876,20 +876,20 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- ════════════════════════════════
      HEADER CONTRAT
 ════════════════════════════════ -->
 <div class="contract-header">
   <div class="seal">🔐</div>
-
+ 
   <div class="contract-title">Contrat de Soumission</div>
   <div class="contract-sub">Programme d'entraînement · Locktober 2026</div>
-
+ 
   <div class="contract-preamble">
     <span class="drop">E</span>ntre les soussignés, librement consentis et en pleine conscience, est établi le présent contrat de domination et de soumission, régissant le programme d'entraînement préparatoire au <em>Locktober 2026</em>. Ce document constitue un accord privé, fondé sur la confiance mutuelle, le consentement éclairé et le respect de la personne. Il peut être suspendu ou révoqué à tout moment par l'une ou l'autre des parties. La sécurité physique et émotionnelle prime sur toute obligation contractuelle.
   </div>
-
+ 
   <div class="parties">
     <div class="party-card domme">
       <div class="party-role">La Maîtresse — Détentrice des Clés</div>
@@ -902,7 +902,7 @@
       <div class="party-desc">S'engage à respecter les tâches quotidiennes, à ne retirer aucun dispositif sans autorisation, et à rapporter fidèlement sa progression.</div>
     </div>
   </div>
-
+ 
   <div class="articles">
     <h3>Articles du Contrat</h3>
     <div class="article">
@@ -926,22 +926,22 @@
       Du 1er au 31 octobre 2026, le soumis s'engage à rester verrouillé en permanence, sans retrait non autorisé. Cet engagement est l'aboutissement du programme d'entraînement décrit ci-après.
     </div>
   </div>
-
+ 
   <hr class="divider">
 </div>
-
+ 
 <!-- ════════════════════════════════
      CONTENU PRINCIPAL
 ════════════════════════════════ -->
 <div class="main-wrap">
-
+ 
   <div class="section-heading">État du Programme</div>
-
+ 
   <div class="countdown-banner">
     <span class="big" id="cd-days">—</span>
     <span class="label" id="cd-label">jours avant Locktober</span>
   </div>
-
+ 
   <div class="stats-row">
     <div class="stat-card">
       <span class="stat-num" id="stat-done">0</span>
@@ -956,7 +956,7 @@
       <span class="stat-label">Progression</span>
     </div>
   </div>
-
+ 
   <div class="prog-wrap">
     <div class="prog-label">
       <span>Début du programme · 6 juin 2026</span>
@@ -966,35 +966,35 @@
       <div class="prog-fill" id="prog-fill" style="width:0%"></div>
     </div>
   </div>
-
+ 
   <div class="section-heading">Calendrier des Obligations</div>
-
+ 
   <div class="phase-tabs" id="phase-tabs"></div>
   <div class="phase-info-card" id="phase-info"></div>
-
+ 
   <div class="legend">
     <div class="leg-item"><div class="leg-dot ld-cage"></div> Cage / ceinture</div>
     <div class="leg-item"><div class="leg-dot ld-plug"></div> Plug anal</div>
     <div class="leg-item"><div class="leg-dot ld-linge"></div> Lingerie</div>
     <div class="leg-item"><div class="leg-dot ld-couple"></div> Session à deux</div>
   </div>
-
+ 
   <div class="day-grid" id="day-grid"></div>
-
+ 
 </div>
-
+ 
 <!-- ════════════════════════════════
      SECTION PUNITIONS
 ════════════════════════════════ -->
 <div class="contract-footer" style="padding-bottom:0">
   <hr class="divider">
   <div class="section-heading">Châtiments & Punitions</div>
-
+ 
   <div class="punition-section">
     <div class="punition-intro">
       Tout manquement aux obligations contractuelles expose le soumis à une punition tirée au sort par la Maîtresse. Trois niveaux de sévérité sont établis selon la gravité de la faute. La Maîtresse est seule juge de la faute et du niveau applicable. Le soumis s'engage à exécuter la punition sans délai ni négociation.
     </div>
-
+ 
     <div class="punition-tiers">
       <div class="tier-badge tier-1">
         <span class="tier-icon">⚠️</span>
@@ -1012,15 +1012,15 @@
         <span class="tier-desc">Faute grave, récidive</span>
       </div>
     </div>
-
+ 
     <div class="punition-btns">
       <button class="punition-btn pbtn-1" onclick="tirerPunition(1)">⚠️ Tirer<br>Niveau I</button>
       <button class="punition-btn pbtn-2" onclick="tirerPunition(2)">🔴 Tirer<br>Niveau II</button>
       <button class="punition-btn pbtn-3" onclick="tirerPunition(3)">💀 Tirer<br>Niveau III</button>
     </div>
-
+ 
     <div id="punition-result" class="punition-result"></div>
-
+ 
     <div class="punition-log-wrap">
       <div class="punition-log-title">Registre des punitions infligées
         <button class="log-clear" onclick="clearLog()">Effacer le registre</button>
@@ -1029,14 +1029,14 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- ════════════════════════════════
      FOOTER SIGNATURES
 ════════════════════════════════ -->
 <div class="contract-footer">
   <hr class="divider">
   <div class="section-heading">Engagements & Signatures</div>
-
+ 
   <div class="signatures">
     <div class="sig-block">
       <div style="font-size:2rem;margin-bottom:.5rem">🔑</div>
@@ -1055,23 +1055,23 @@
       <div class="sig-role">Verrouillé & dévoué</div>
     </div>
   </div>
-
+ 
   <div class="contract-seal-bottom">
     <span class="big-seal">⚜️</span>
     <p>Contrat établi librement · Fondé sur la confiance mutuelle · Révocable à tout moment</p>
   </div>
 </div>
-
+ 
 <!-- MODAL -->
 <div class="modal-bg" id="modal-bg" onclick="if(event.target===this)closeModal()">
   <div class="modal-box" id="modal-box"></div>
 </div>
-
+ 
 <script>
 const START = new Date(2026, 5, 6);
 const LOCKTOBER = new Date(2026, 9, 1);
 const TODAY = new Date(2026, 5, 5);
-
+ 
 const PHASES = [
   { id:0, name:"Phase I — Initiation", short:"Phase I", start:new Date(2026,5,6), end:new Date(2026,5,30), desc:"Habituation progressive à la cage. Durées de 2 à 10h. Lingerie discrète. Premières obédiences.", color:"#85B7EB" },
   { id:1, name:"Phase II — Développement", short:"Phase II", start:new Date(2026,6,1), end:new Date(2026,6,31), desc:"Port prolongé : 8 à 16h. Introduction du plug régulier. Premières sessions bondage légères.", color:"#AFA9EC" },
@@ -1079,18 +1079,171 @@ const PHASES = [
   { id:3, name:"Phase IV — Endurance", short:"Phase IV", start:new Date(2026,8,1), end:new Date(2026,8,30), desc:"Blocs de 24h, 48h, 72h. Ceinture de chasteté. Électrostimulation. Grande préparation finale.", color:"#EF9F27" },
   { id:4, name:"⚜ LOCKTOBER", short:"Locktober", start:new Date(2026,9,1), end:new Date(2026,9,31), desc:"31 jours continus. Le soumis reste verrouillé sous l'autorité exclusive de la Maîtresse.", color:"#c9a84c" }
 ];
-
+ 
 const CAGES = { grande:"grande cage métal", adaptee:"cage métal ajustée", petite:"petite cage compressive", plastique:"cage plastique (électro)", ceinture:"ceinture + soutien-gorge de chasteté" };
-
+ 
 function addDays(d, n){ const r=new Date(d); r.setDate(r.getDate()+n); return r; }
 function daysBetween(a,b){ return Math.round((b-a)/86400000); }
 function fmt(d){ return d.toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'}); }
 function fmtLong(d){ return d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}); }
 function key(d){ return d.toISOString().slice(0,10); }
-
+ 
 function getDone(){ try{ return JSON.parse(localStorage.getItem('lck26')||'[]'); }catch(e){ return []; } }
 function saveDone(a){ try{ localStorage.setItem('lck26',JSON.stringify(a)); }catch(e){} }
-
+ 
+ 
+const LOCKTOBER_DAYS=[
+{title:"Mise en cage — L'examen commence",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"La cage métal ajustée est mise en place par la Maîtresse. Elle lit ta lettre. Une photo. 31 jours. La cage ne s'ouvrira que sur mon ordre — et peut-être pas au bout du mois."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Règle permanente pour tout Locktober : string porté en permanence, y compris en public, y compris la nuit. Sans exception."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Je savoure ce moment. Tu sais ce qui t'attend pour les 30 prochains jours."}
+]},
+{title:"Frustration active — Brûle pour moi",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Petite cage compressive. Tu regardes 1h de contenu excitant seul. Tu brûles. Tu ne touches pas. Ta frustration est mon plaisir."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Lingerie complète toute la journée. Tenue féminine choisie par moi dès que les enfants sont absents."}
+]},
+{title:"Mon jouet en tenue privée",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Cage ajustée. Dès que les enfants partent : talons hauts, lingerie, corset confortable. Tu es mon jouet privé jusqu'à leur retour."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"À leur retour : ce qui peut rester caché reste en place toute la journée."}
+]},
+{title:"Attentions et gratitude",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Cage ajustée. Journée de service total : massages, attentions, tâches. Tu remercies celle qui te verrouille avec amour et avec ton corps."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Ta frustration nourrit ta gratitude. C'est voulu."}
+]},
+{title:"Permission contrôlée — Sans jouir",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"15 minutes hors cage accordées. Tu peux te toucher — interdit de jouir. Si je le décide : à mes pieds. Cage remise immédiatement après : la petite compressive."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Pour que tu n'oublies pas à qui tu appartiens."}
+]},
+{title:"Sortie publique — Notre secret",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Cage métal ajustée. Sortie normale. Tenue masculine. Notre complicité silencieuse."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Lingerie complète + plug S dessous. Tu marches, tu souris, tu tiens la porte. Je savoure ce que je sais."},
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug S en place pendant toute la sortie."}
+]},
+{title:"Une semaine — Tu me donnes tout",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Cage en place avant et après. Sans discussion."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Harnais strap-on avec gode 18cm, en cage, plug S en place. Tu me donnes tout le plaisir que je veux. Je ne t'accorde rien."},
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug S pendant toute la session."}
+]},
+{title:"La cage à pointes fait son entrée",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"La cage plastique à pointes intérieures avec tube urétral verrouillé. Toute tentative d'érection est immédiatement sanctionnée de l'intérieur. Port de 14h. Bienvenue dans la partie sérieuse."},
+  {tp:"info",ic:"\uD83D\uDCDC",tx:"Surveille ta circulation. Informe-moi si quelque chose d'anormal se produit."}
+]},
+{title:"Plug gonflable + ceinture — Verrouillé partout",tasks:[
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug gonflable mis en place, gonflé à confort, ampoule et tube retirés. 3h minimum. La Maîtresse seule peut le dégonfler."},
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Ceinture + soutien-gorge de chasteté verrouillés par-dessus. Trou anal disponible. Tu es verrouillé partout."}
+]},
+{title:"Corset + pinces — Tenue de pénitence",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Ceinture + soutien-gorge de chasteté verrouillés toute la matinée. Pénis totalement inaccessible."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Pinces à tétons verrouillées sous le soutien-gorge — impossibles à retirer sans moi. Corset verrouillé par-dessus."},
+  {tp:"info",ic:"\uD83D\uDCDC",tx:"Les pinces sans caoutchouc de protection. Tu réfléchiras à deux fois avant ta prochaine faute."}
+]},
+{title:"Confession — Tes fantasmes les plus noirs",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Cage ajustée toute la journée."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Tu rédiges à la main tes fantasmes les plus intenses, les plus inavouables. Tu m'ouvres ton âme. Je suis ton unique confidente. Remis ce soir, lu à voix haute si je le décide."}
+]},
+{title:"Plug toute la nuit — Endurance",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Petite cage compressive pour accompagner la nuit."},
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug M mis en soirée. Porté toute la nuit. Retiré au matin sur mon autorisation. Ton amour se mesure à ton endurance nocturne."}
+]},
+{title:"Premier bondage Locktober",tasks:[
+  {tp:"bondage",ic:"\u26D3\uFE0F",tx:"Menottes poignets verrouillables dans le dos. Barre d'écartement aux chevilles. Collier de posture verrouillé. Tu attends dans la position que j'ai choisie."},
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug L imposé pendant toute la session."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Je décide de quand tu seras libéré. Peut-être après avoir joué avec toi. Peut-être beaucoup plus tard. Tu me remercieras."}
+]},
+{title:"Épreuve des deux semaines — Interrogatoire électro",tasks:[
+  {tp:"bondage",ic:"\u26D3\uFE0F",tx:"Menottes policières. Collier de posture verrouillé. Barre d'écartement. Assis face à moi."},
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug S électro en place."},
+  {tp:"elec",ic:"\u26A1",tx:"Cage plastique électro + plug S électro. DG Labs Coyote, 2 canaux actifs pendant tout l'interrogatoire."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Qu'as-tu appris en 14 jours ? Pourquoi mérites-tu de continuer ? Es-tu prêt pour la chasteté permanente ? Toute hésitation = stimulation immédiate."}
+]},
+{title:"Fuck machine — Tu n'es qu'un objet",tasks:[
+  {tp:"bondage",ic:"\u26D3\uFE0F",tx:"Menottes verrouillables. Barre d'écartement moyenne réglable. Position à quatre pattes, immobilisé."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"La fuck machine (18cm x 3,5cm) prend la relève. 20 minutes. Je regarde, je fais ce que je veux. Tu n'es qu'un objet mécanique dont je dispose."},
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Cage retirée pour la session, remise immédiatement après. Tu n'as pas eu de plaisir — seulement de l'utilité."}
+]},
+{title:"Électro à mon gré — Journée sous tension",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Cage plastique électro portée toute la journée."},
+  {tp:"elec",ic:"\u26A1",tx:"DG Labs Coyote connecté. J'active à mes envies — aléatoirement, sans prévenir, quand l'idée me traverse. Tu vis au rythme de mes impulsions."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Pads électro adhésifs en place aussi. 2 canaux actifs."}
+]},
+{title:"Supplications — Pitié pour moi",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"La cage à pointes reprend sa place après tes 10 minutes accordées. Ta récompense pour avoir supplié."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Mets-toi à genoux. Dis-moi pourquoi tu mérites une pause. Si tu es suffisamment sincère et pitoyable, je t'accorde 10 minutes hors cage."}
+]},
+{title:"Nuit sadique — Mon jouet préféré",tasks:[
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Nuit à mon entière discrétion. Je joue avec ton corps comme avec mon jouet préféré."},
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug gonflable gonflé, ampoule retirée. Verrouillé en place."},
+  {tp:"elec",ic:"\u26A1",tx:"Cage plastique électro + pads adhésifs. Les deux canaux du Coyote actifs. C'est moi qui tiens la télécommande."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Pinces à tétons serrées. Corset verrouillé. Tu es entièrement contraint."}
+]},
+{title:"Le mot non n'existe plus",tasks:[
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"À partir de ce jour et jusqu'au 31 : le mot 'non' disparaît définitivement. Tu n'es que docilité absolue. Refuser = punition de niveau III automatique."},
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Petite cage compressive 18h."}
+]},
+{title:"Privation sensorielle — Tu es invisible",tasks:[
+  {tp:"bondage",ic:"\u26D3\uFE0F",tx:"Menottes verrouillables aux poignets. Barre d'écartement aux chevilles."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Cagoule latex. Bouchons d'oreilles dessous. Casque antibruit par-dessus. Lentilles blanches : aveuglement total."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Je t'ignore. Tu es invisible. Tu m'aimes assez pour accepter cette absence totale. Durée : à mon entière discrétion."}
+]},
+{title:"Harnais inversé — Tu me sers en cage",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Le harnais possède un trou prévu à cet effet. La cage reste. Tu me sers verrouillé."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Tu portes le harnais strap-on avec le gode 18cm, en cage. Tu me prends et me donnes tout le plaisir que je veux. Pendant ce temps, ta cage te rappelle que ton plaisir n'existe pas."}
+]},
+{title:"Corset au maximum — Servitude stricte",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Ceinture + soutien-gorge de chasteté verrouillés. Pinces à tétons dessous."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Corset serré au maximum et verrouillé — il le restera jusqu'à la fin du Locktober. Tenue soubrette + talons hauts."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Corvées toute la journée. À chaque tâche réussie, peut-être une caresse. Jamais plus."}
+]},
+{title:"Bottes de ballet — Position de dévotion",tasks:[
+  {tp:"bondage",ic:"\u26D3\uFE0F",tx:"Bottes de ballet verrouillées (4 cadenas). Barre d'écartement. Collier de posture verrouillé. 1h immobile, à ma merci."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Corset verrouillé. Bas similicuir sur les mains. Tes doigts sont inutiles."},
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Petite cage compressive."}
+]},
+{title:"Silence absolu — Oui Maîtresse",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Cage ajustée. Corset verrouillé."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Tes seuls mots autorisés aujourd'hui : 'Oui, Maîtresse.' Toute autre parole = punition de niveau II. Toute la journée."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Lingerie complète. Tenue féminine dès que les enfants partent."}
+]},
+{title:"Masque à gaz — L'air que je t'accorde",tasks:[
+  {tp:"bondage",ic:"\u26D3\uFE0F",tx:"Menottes verrouillables dans le dos. Barre d'écartement. Collier de posture."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Cagoule latex. Bouchons d'oreilles dessous. Casque antibruit. Masque à gaz intégral avec bouteille partiellement obstruée."},
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug L en place."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"La bouteille règle ce que tu respires. Je contrôle tout. 30 min. Je suis avec toi à chaque instant."}
+]},
+{title:"Nuit menottée — Ton sommeil m'appartient",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Petite cage compressive."},
+  {tp:"bondage",ic:"\u26D3\uFE0F",tx:"Menottes policières pour la nuit. Elles ne s'ouvrent qu'avec ma clé. Ton sommeil est un luxe que je t'arrache."},
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug M pour la nuit."}
+]},
+{title:"Le Grand Cauchemar — L'épreuve absolue",tasks:[
+  {tp:"bondage",ic:"\u26D3\uFE0F",tx:"Attaché aux 4 coins du lit. Bras et jambes écartés. Ballet boots verrouillées. Bas similicuir sur les mains. Menottes policières. Aucun mouvement possible."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Bouchons d'oreilles sous la cagoule latex. Masque à gaz opaque avec bouteille fixée. Casque antibruit. Bâillon gonflable gonflé, ampoule retirée, puis masque à gaz. Pinces à tétons. Corset verrouillé."},
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug gonflable gonflé, ampoule retirée. Tu es verrouillé partout."},
+  {tp:"elec",ic:"\u26A1",tx:"Cage plastique électro + pads adhésifs. 2 canaux du Coyote actifs. Le gode-ceinture est sur toi pour mon plaisir personnel."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"2h minimum. Peut-être plus. Tu ne sais pas. Tu ne vois rien. Tu n'entends rien. Tu ne peux rien. Ma main sur tes pinces est ton seul ancrage. L'attente est ton enfer. C'est la plus belle preuve d'amour."}
+]},
+{title:"Nuit prison — Tu dors dans ma prison",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Cage plastique électro pour la nuit. J'active à intervalles irréguliers pendant que tu tentes de dormir."},
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug gonflable pour la nuit, gonflé, ampoule retirée."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Corset verrouillé. Pinces à tétons. Tu dors contraint."}
+]},
+{title:"Confession finale — Tout mettre sur papier",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Cage ajustée. Ton encre est ton dernier aveu avant le verdict."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Tu documentes tout ce mois : ressentis, humiliations, frustrations, moments de faiblesse, de fierté. Pourquoi tu m'aimes encore plus à travers tout ça. Ce texte m'appartient."}
+]},
+{title:"Avant-dernier jour — Mon pantin adoré",tasks:[
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Cage à pointes + tube urétral. Corset verrouillé au maximum jusqu'au verdict. Tu ne respireras pas librement avant que je l'aie décidé."},
+  {tp:"lingerie",ic:"\uD83D\uDC59",tx:"Tenue intégrale choisie par moi. Escarpins très hauts. Tu es mon pantin que j'adore."},
+  {tp:"plug",ic:"\uD83D\uDD0C",tx:"Plug M en place toute la journée et la nuit."},
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Je te regarde. Je te photographie. Tu es magnifique dans ta soumission."}
+]},
+{title:"Jour 31 — Le Verdict",tasks:[
+  {tp:"couple",ic:"\uD83D\uDC9A",tx:"Félicitations. Tu as réussi ton Locktober — le plus difficile que tu aies jamais imaginé. Tu as enduré, obéi, souffert, et tu m'as tout donné."},
+  {tp:"cage",ic:"\uD83D\uDD12",tx:"Locktober était ton examen final. Tu as prouvé que tu peux rester verrouillé pour moi pendant un mois entier."},
+  {tp:"info",ic:"\uD83D\uDCDC",tx:"Maintenant : pourquoi devrais-je te libérer, si ce n'est pour mon plaisir personnel ? Tu m'appartiens corps et âme. Ta liberté n'existe que pour me procurer MON plaisir. Mon verdict sera rendu ce soir. Sois convaincant — si tu oses demander."}
+]}
+];
+ 
 function getDayTask(d){
   const total = daysBetween(START, d);
   const dow = d.getDay();
@@ -1098,7 +1251,7 @@ function getDayTask(d){
   if(total<0) return null;
   const tasks=[];
   let cage=null,plug=null,linge=false,bondage=false;
-
+ 
   if(total<25){
     const hrs=[2,3,3,4,4,3,5,4,5,5,6,5,6,7,6,7,7,8,6,8,8,9,8,9,10][Math.min(total,24)];
     cage=CAGES.grande;
@@ -1140,41 +1293,31 @@ function getDayTask(d){
     if(isWeekend){ bondage=true; tasks.push({type:'couple',icon:'💚',text:`<em>Session sensorielle ordonnée par la Maîtresse :</em> Bottes ballet, barre d'écartement, collier de posture, cage. Bouchons d'oreilles + cagoule latex + casque antibruit. Lentilles à la discrétion de la Maîtresse. Durée : 1–2h.`}); }
   } else {
     const tL=total-118;
-    const cagesL=[CAGES.grande,CAGES.adaptee,CAGES.petite,CAGES.plastique,CAGES.ceinture];
-    cage=cagesL[tL%5];
-    tasks.push({type:'cage',icon:'🔒',text:`<strong>Locktober — Jour ${tL+1}/31 :</strong> La <em>${cage}</em> ne sera retirée que sur ordre de la Maîtresse. Pas de dérogation.`});
-    linge=true;
-    tasks.push({type:'lingerie',icon:'👙',text:'Tenue féminine complète imposée à la maison. Lingerie sous les vêtements à l\'extérieur. Escarpins en intérieur sur ordre.'});
-    plug=true;
-    const plugsL=['M','L','gonflable','électro-S','L','gonflable','M'];
-    tasks.push({type:'plug',icon:'🔌',text:`Plug ${plugsL[tL%7]} : minimum 2h, au moment choisi par la Maîtresse.`});
-    if(tL%3===0){
-      bondage=true;
-      const sc=[
-        "Menottes verrouillables dans le dos + barre d'écartement aux chevilles + cage. La Maîtresse décide de la suite.",
-        "Corset verrouillé + collier de posture + bottes de ballet. Position d'attente 30 min.",
-        "Le soumis porte le harnais strap-on (gode 18cm) en cage, pour satisfaire sa Maîtresse.",
-        "Bâillon boule verrouillable + lentilles blanches (aveuglement total) + mains liées. Attente à sa discrétion.",
-        "Menottes policières + plug gonflable (ampoule retirée) + cagoule latex. 45 min.",
-        "Ceinture + pinces à tétons verrouillées + soutien-gorge + escarpins. La Maîtresse parade son soumis."
-      ];
-      tasks.push({type:'couple',icon:'💚',text:`<em>Obligation Locktober :</em> ${sc[tL%6]}`});
+    if(tL>=0 && tL<31){
+      const ld=LOCKTOBER_DAYS[tL];
+      ld.tasks.forEach(t=>{
+        tasks.push({type:t.tp,icon:t.ic,text:t.tx});
+        if(t.tp==='cage')cage=true;
+        if(t.tp==='plug')plug=true;
+        if(t.tp==='lingerie')linge=true;
+        if(t.tp==='couple'||t.tp==='bondage')bondage=true;
+      });
     }
   }
   return {tasks,cage,plug,linge,bondage};
 }
-
+ 
 function phaseOf(d){ for(let i=PHASES.length-1;i>=0;i--){ if(d>=PHASES[i].start) return i; } return 0; }
-
+ 
 let currentPhase=phaseOf(TODAY);
 let done=getDone();
-
+ 
 function render(){
   const totalDays=daysBetween(START,LOCKTOBER)+31;
   document.getElementById('stat-done').textContent=done.length;
   document.getElementById('stat-pct').textContent=Math.round(done.length/totalDays*100)+'%';
   document.getElementById('prog-fill').style.width=Math.max(Math.round(done.length/totalDays*100),1)+'%';
-
+ 
   let streak=0;
   for(let i=0;i<999;i++){
     const d=addDays(TODAY,-i);
@@ -1183,11 +1326,11 @@ function render(){
     else if(i>0) break;
   }
   document.getElementById('stat-streak').textContent=streak;
-
+ 
   const dL=daysBetween(TODAY,LOCKTOBER);
   document.getElementById('cd-days').textContent=dL>0?dL:(dL===0?'0':'🔒');
   document.getElementById('cd-label').textContent=dL>0?'jours avant Locktober':dL===0?'Locktober commence aujourd\'hui !':'Locktober en cours — le soumis est verrouillé';
-
+ 
   const tabs=document.getElementById('phase-tabs');
   tabs.innerHTML='';
   PHASES.forEach((p,i)=>{
@@ -1199,7 +1342,7 @@ function render(){
   });
   renderPhase();
 }
-
+ 
 function renderPhase(){
   document.querySelectorAll('.phase-tab').forEach((b,i)=>{ b.className='phase-tab'+(i===currentPhase?' active':''); });
   const p=PHASES[currentPhase];
@@ -1215,16 +1358,16 @@ function renderPhase(){
     const isDone=done.includes(k);
     const info=getDayTask(dc);
     const dayNum=daysBetween(START,dc)+1;
-
+ 
     const card=document.createElement('div');
     card.className='day-card'+(isDone?' completed':isToday?' today':isFuture?' locked':'');
-
+ 
     let badges='';
     if(info&&info.cage) badges+=`<div class="dc-badge dcb-cage"></div>`;
     if(info&&info.plug) badges+=`<div class="dc-badge dcb-plug"></div>`;
     if(info&&info.linge) badges+=`<div class="dc-badge dcb-linge"></div>`;
     if(info&&info.bondage) badges+=`<div class="dc-badge dcb-couple"></div>`;
-
+ 
     card.innerHTML=`
       <div class="dc-num">Jour ${dayNum}</div>
       <div class="dc-date">${fmt(dc)}</div>
@@ -1237,7 +1380,7 @@ function renderPhase(){
     d=addDays(d,1);
   }
 }
-
+ 
 function openModal(d,info,isDone){
   const k=key(d);
   const dayNum=daysBetween(START,d)+1;
@@ -1250,7 +1393,7 @@ function openModal(d,info,isDone){
   }
   const decrees=['Par ordre de la Maîtresse, ces obligations sont à exécuter ce jour.','La Maîtresse a décrété les tâches suivantes pour ce jour.','Le soumis est tenu d\'accomplir fidèlement les ordres ci-dessous.','Obligations du jour, par autorité de la Maîtresse détentrice des clés.'];
   const decree=decrees[dayNum%decrees.length];
-
+ 
   document.getElementById('modal-box').innerHTML=`
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-seal">📜</div>
@@ -1264,9 +1407,9 @@ function openModal(d,info,isDone){
   `;
   document.getElementById('modal-bg').classList.add('open');
 }
-
+ 
 function closeModal(){ document.getElementById('modal-bg').classList.remove('open'); }
-
+ 
 function toggleDone(k){
   if(done.includes(k)) done=done.filter(x=>x!==k);
   else done.push(k);
@@ -1274,8 +1417,8 @@ function toggleDone(k){
   closeModal();
   render();
 }
-
-
+ 
+ 
 const PUNITIONS = {
   1: [
     { nom: "Extension de port obligatoire", desc: "Le soumis doit porter sa cage 3h supplémentaires ce jour, sans dérogation possible. La Maîtresse vérifie.", duree: "Ce jour même" },
@@ -1312,13 +1455,13 @@ const PUNITIONS = {
     { nom: "Cage plastique électro + plug électro simultanés", desc: "La cage plastique connectée à l'électro et le plug S électro sont tous deux branchés sur les deux canaux du DG Labs Coyote. La Maîtresse contrôle les deux canaux indépendamment pendant 45 minutes.", duree: "45 min, deux canaux" }
   ]
 };
-
+ 
 function tirerPunition(niveau) {
   const liste = PUNITIONS[niveau];
   const p = liste[Math.floor(Math.random() * liste.length)];
   const tierClass = `pr-result-${niveau}`;
   const tierLabel = niveau===1 ? '⚠️ Punition de Niveau I — Légère' : niveau===2 ? '🔴 Punition de Niveau II — Sévère' : '💀 Punition de Niveau III — Extrême';
-
+ 
   const el = document.getElementById('punition-result');
   el.className = `punition-result visible ${tierClass}`;
   el.innerHTML = `
@@ -1330,7 +1473,7 @@ function tirerPunition(niveau) {
   `;
   el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
-
+ 
 function confirmerPunition(niveau, nom) {
   const log = getPunitionLog();
   const now = new Date();
@@ -1341,22 +1484,22 @@ function confirmerPunition(niveau, nom) {
   document.getElementById('punition-result').className = 'punition-result';
   renderLog();
 }
-
+ 
 function getPunitionLog() {
   try { return JSON.parse(localStorage.getItem('lck26_punitions') || '[]'); } catch(e) { return []; }
 }
-
+ 
 function savePunitionLog(log) {
   try { localStorage.setItem('lck26_punitions', JSON.stringify(log)); } catch(e) {}
 }
-
+ 
 function clearLog() {
   if (confirm('Effacer tout le registre des punitions ?')) {
     savePunitionLog([]);
     renderLog();
   }
 }
-
+ 
 function renderLog() {
   const log = getPunitionLog();
   const el = document.getElementById('punition-log');
@@ -1370,7 +1513,7 @@ function renderLog() {
     return `<div class="log-entry ${cls}"><span class="log-date">${e.date}</span><span class="log-name">${icon} ${e.nom}</span></div>`;
   }).join('');
 }
-
+ 
 renderLog();
 render();
 </script>
