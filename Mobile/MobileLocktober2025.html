@@ -40,14 +40,10 @@
     min-height: 100vh;
   }
 
-  /* ── SCROLLBAR ── */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
 
-  /* ══════════════════════════════
-     HEADER / CONTRAT
-  ══════════════════════════════ */
   .contract-header {
     max-width: 860px;
     margin: 0 auto;
@@ -192,9 +188,6 @@
     margin: 2rem 0;
   }
 
-  /* ══════════════════════════════
-     STATS
-  ══════════════════════════════ */
   .main-wrap {
     max-width: 860px;
     margin: 0 auto;
@@ -308,9 +301,6 @@
     transition: width 0.8s ease;
   }
 
-  /* ══════════════════════════════
-     PHASE TABS
-  ══════════════════════════════ */
   .phase-tabs {
     display: flex;
     gap: 0.4rem;
@@ -356,9 +346,6 @@
     font-style: italic;
   }
 
-  /* ══════════════════════════════
-     LEGEND
-  ══════════════════════════════ */
   .legend {
     display: flex;
     gap: 1rem;
@@ -381,9 +368,6 @@
   .ld-linge { background: var(--gold); }
   .ld-couple { background: var(--success2); }
 
-  /* ══════════════════════════════
-     DAY GRID
-  ══════════════════════════════ */
   .day-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -471,9 +455,6 @@
     text-transform: uppercase;
   }
 
-  /* ══════════════════════════════
-     MODAL
-  ══════════════════════════════ */
   .modal-bg {
     display: none;
     position: fixed;
@@ -588,9 +569,6 @@
   .done-btn:hover { background: rgba(139,32,32,0.35); }
   .done-btn.done { background: rgba(45,107,58,0.2); border-color: rgba(76,168,94,0.4); color: var(--success2); }
 
-  /* ══════════════════════════════
-     FOOTER / SIGNATURES
-  ══════════════════════════════ */
   .contract-footer {
     max-width: 860px;
     margin: 0 auto;
@@ -650,9 +628,6 @@
     text-transform: uppercase;
   }
 
-  /* ══════════════════════════════
-     PUNITIONS
-  ══════════════════════════════ */
   .punition-section {
     background: var(--bg2);
     border: 1px solid rgba(139,32,32,0.5);
@@ -862,9 +837,6 @@
   }
   .log-clear:hover { color: var(--red3); }
 
-  /* ══════════════════════════════
-     RESPONSIVE
-  ══════════════════════════════ */
   @media (max-width: 600px) {
     .parties { grid-template-columns: 1fr; }
     .stats-row { grid-template-columns: repeat(3, 1fr); }
@@ -877,9 +849,7 @@
 </head>
 <body>
 
-<!-- ════════════════════════════════
-     HEADER CONTRAT
-════════════════════════════════ -->
+<!-- HEADER CONTRAT -->
 <div class="contract-header">
   <div class="seal">🔐</div>
 
@@ -930,9 +900,7 @@
   <hr class="divider">
 </div>
 
-<!-- ════════════════════════════════
-     CONTENU PRINCIPAL
-════════════════════════════════ -->
+<!-- CONTENU PRINCIPAL -->
 <div class="main-wrap">
 
   <div class="section-heading">État du Programme</div>
@@ -983,9 +951,7 @@
 
 </div>
 
-<!-- ════════════════════════════════
-     SECTION PUNITIONS
-════════════════════════════════ -->
+<!-- SECTION PUNITIONS -->
 <div class="contract-footer" style="padding-bottom:0">
   <hr class="divider">
   <div class="section-heading">Châtiments & Punitions</div>
@@ -1030,9 +996,7 @@
   </div>
 </div>
 
-<!-- ════════════════════════════════
-     FOOTER SIGNATURES
-════════════════════════════════ -->
+<!-- FOOTER SIGNATURES -->
 <div class="contract-footer">
   <hr class="divider">
   <div class="section-heading">Engagements & Signatures</div>
@@ -1068,21 +1032,45 @@
 </div>
 
 <script>
-const START = new Date(2026, 5, 6);
-const LOCKTOBER = new Date(2026, 9, 1);
-const TODAY = new Date(2026, 5, 5);
+// ── CORRECTION FUSEAU HORAIRE PARIS ──────────────────────────────────────────
+// Calcule la date actuelle dans le fuseau Europe/Paris, sans jamais être décalé
+// d'un jour selon l'heure de la machine ou du navigateur.
+function getTodayParis() {
+  const now = new Date();
+  const parts = new Intl.DateTimeFormat('fr-FR', {
+    timeZone: 'Europe/Paris',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(now);
+  const y = parts.find(p => p.type === 'year').value;
+  const m = parts.find(p => p.type === 'month').value;
+  const d = parts.find(p => p.type === 'day').value;
+  return new Date(`${y}-${m}-${d}T00:00:00`);
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
+const START     = new Date(2026, 5, 6);   // 6 juin 2026
+const LOCKTOBER = new Date(2026, 9, 1);   // 1 oct 2026
+const TODAY     = getTodayParis();         // ← date dynamique Paris
 
 const PHASES = [
-  { id:0, name:"Phase I — Initiation", short:"Phase I", start:new Date(2026,5,6), end:new Date(2026,5,30), desc:"Habituation progressive à la cage. Durées de 2 à 10h. Lingerie discrète. Premières obédiences.", color:"#85B7EB" },
-  { id:1, name:"Phase II — Développement", short:"Phase II", start:new Date(2026,6,1), end:new Date(2026,6,31), desc:"Port prolongé : 8 à 16h. Introduction du plug régulier. Premières sessions bondage légères.", color:"#AFA9EC" },
-  { id:2, name:"Phase III — Consolidation", short:"Phase III", start:new Date(2026,7,1), end:new Date(2026,7,31), desc:"Ports nocturnes, cage compressive. Sessions bondage élaborées avec la Maîtresse. Plug gonflable.", color:"#D85A30" },
-  { id:3, name:"Phase IV — Endurance", short:"Phase IV", start:new Date(2026,8,1), end:new Date(2026,8,30), desc:"Blocs de 24h, 48h, 72h. Ceinture de chasteté. Électrostimulation. Grande préparation finale.", color:"#EF9F27" },
-  { id:4, name:"⚜ LOCKTOBER", short:"Locktober", start:new Date(2026,9,1), end:new Date(2026,9,31), desc:"31 jours continus. Le soumis reste verrouillé sous l'autorité exclusive de la Maîtresse.", color:"#c9a84c" }
+  { id:0, name:"Phase I — Initiation",    short:"Phase I",    start:new Date(2026,5,6),  end:new Date(2026,5,30), desc:"Habituation progressive à la cage. Durées de 2 à 10h. Lingerie discrète. Premières obédiences.", color:"#85B7EB" },
+  { id:1, name:"Phase II — Développement",short:"Phase II",   start:new Date(2026,6,1),  end:new Date(2026,6,31), desc:"Port prolongé : 8 à 16h. Introduction du plug régulier. Premières sessions bondage légères.", color:"#AFA9EC" },
+  { id:2, name:"Phase III — Consolidation",short:"Phase III", start:new Date(2026,7,1),  end:new Date(2026,7,31), desc:"Ports nocturnes, cage compressive. Sessions bondage élaborées avec la Maîtresse. Plug gonflable.", color:"#D85A30" },
+  { id:3, name:"Phase IV — Endurance",    short:"Phase IV",   start:new Date(2026,8,1),  end:new Date(2026,8,30), desc:"Blocs de 24h, 48h, 72h. Ceinture de chasteté. Électrostimulation. Grande préparation finale.", color:"#EF9F27" },
+  { id:4, name:"⚜ LOCKTOBER",            short:"Locktober",  start:new Date(2026,9,1),  end:new Date(2026,9,31), desc:"31 jours continus. Le soumis reste verrouillé sous l'autorité exclusive de la Maîtresse.", color:"#c9a84c" }
 ];
 
-const CAGES = { grande:"grande cage métal", adaptee:"cage métal ajustée", petite:"petite cage compressive", plastique:"cage plastique (électro)", ceinture:"ceinture + soutien-gorge de chasteté" };
+const CAGES = {
+  grande:   "grande cage métal",
+  adaptee:  "cage métal ajustée",
+  petite:   "petite cage compressive",
+  plastique:"cage plastique (électro)",
+  ceinture: "ceinture + soutien-gorge de chasteté"
+};
 
-function addDays(d, n){ const r=new Date(d); r.setDate(r.getDate()+n); return r; }
+function addDays(d,n){ const r=new Date(d); r.setDate(r.getDate()+n); return r; }
 function daysBetween(a,b){ return Math.round((b-a)/86400000); }
 function fmt(d){ return d.toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'}); }
 function fmtLong(d){ return d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}); }
@@ -1090,6 +1078,158 @@ function key(d){ return d.toISOString().slice(0,10); }
 
 function getDone(){ try{ return JSON.parse(localStorage.getItem('lck26')||'[]'); }catch(e){ return []; } }
 function saveDone(a){ try{ localStorage.setItem('lck26',JSON.stringify(a)); }catch(e){} }
+
+const LOCKTOBER_DAYS=[
+{title:"Mise en cage — L'examen commence",tasks:[
+  {tp:"cage",ic:"🔒",tx:"La cage métal ajustée est mise en place par la Maîtresse. Elle lit ta lettre. Une photo. 31 jours. La cage ne s'ouvrira que sur mon ordre — et peut-être pas au bout du mois."},
+  {tp:"lingerie",ic:"👙",tx:"Règle permanente pour tout Locktober : string porté en permanence, y compris en public, y compris la nuit. Sans exception."},
+  {tp:"couple",ic:"💚",tx:"Je savoure ce moment. Tu sais ce qui t'attend pour les 30 prochains jours."}
+]},
+{title:"Frustration active — Brûle pour moi",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Petite cage compressive. Tu regardes 1h de contenu excitant seul. Tu brûles. Tu ne touches pas. Ta frustration est mon plaisir."},
+  {tp:"lingerie",ic:"👙",tx:"Lingerie complète toute la journée. Tenue féminine choisie par moi dès que les enfants sont absents."}
+]},
+{title:"Mon jouet en tenue privée",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Cage ajustée. Dès que les enfants partent : talons hauts, lingerie, corset confortable. Tu es mon jouet privé jusqu'à leur retour."},
+  {tp:"lingerie",ic:"👙",tx:"À leur retour : ce qui peut rester caché reste en place toute la journée."}
+]},
+{title:"Attentions et gratitude",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Cage ajustée. Journée de service total : massages, attentions, tâches. Tu remercies celle qui te verrouille avec amour et avec ton corps."},
+  {tp:"couple",ic:"💚",tx:"Ta frustration nourrit ta gratitude. C'est voulu."}
+]},
+{title:"Permission contrôlée — Sans jouir",tasks:[
+  {tp:"cage",ic:"🔒",tx:"15 minutes hors cage accordées. Tu peux te toucher — interdit de jouir. Si je le décide : à mes pieds. Cage remise immédiatement après : la petite compressive."},
+  {tp:"couple",ic:"💚",tx:"Pour que tu n'oublies pas à qui tu appartiens."}
+]},
+{title:"Sortie publique — Notre secret",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Cage métal ajustée. Sortie normale. Tenue masculine. Notre complicité silencieuse."},
+  {tp:"lingerie",ic:"👙",tx:"Lingerie complète + plug S dessous. Tu marches, tu souris, tu tiens la porte. Je savoure ce que je sais."},
+  {tp:"plug",ic:"🔌",tx:"Plug S en place pendant toute la sortie."}
+]},
+{title:"Une semaine — Tu me donnes tout",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Cage en place avant et après. Sans discussion."},
+  {tp:"couple",ic:"💚",tx:"Harnais strap-on avec gode 18cm, en cage, plug S en place. Tu me donnes tout le plaisir que je veux. Je ne t'accorde rien."},
+  {tp:"plug",ic:"🔌",tx:"Plug S pendant toute la session."}
+]},
+{title:"La cage à pointes fait son entrée",tasks:[
+  {tp:"cage",ic:"🔒",tx:"La cage plastique à pointes intérieures avec tube urétral verrouillé. Toute tentative d'érection est immédiatement sanctionnée de l'intérieur. Port de 14h. Bienvenue dans la partie sérieuse."},
+  {tp:"info",ic:"📜",tx:"Surveille ta circulation. Informe-moi si quelque chose d'anormal se produit."}
+]},
+{title:"Plug gonflable + ceinture — Verrouillé partout",tasks:[
+  {tp:"plug",ic:"🔌",tx:"Plug gonflable mis en place, gonflé à confort, ampoule et tube retirés. 3h minimum. La Maîtresse seule peut le dégonfler."},
+  {tp:"cage",ic:"🔒",tx:"Ceinture + soutien-gorge de chasteté verrouillés par-dessus. Trou anal disponible. Tu es verrouillé partout."}
+]},
+{title:"Corset + pinces — Tenue de pénitence",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Ceinture + soutien-gorge de chasteté verrouillés toute la matinée. Pénis totalement inaccessible."},
+  {tp:"lingerie",ic:"👙",tx:"Pinces à tétons verrouillées sous le soutien-gorge — impossibles à retirer sans moi. Corset verrouillé par-dessus."},
+  {tp:"info",ic:"📜",tx:"Les pinces sans caoutchouc de protection. Tu réfléchiras à deux fois avant ta prochaine faute."}
+]},
+{title:"Confession — Tes fantasmes les plus noirs",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Cage ajustée toute la journée."},
+  {tp:"couple",ic:"💚",tx:"Tu rédiges à la main tes fantasmes les plus intenses, les plus inavouables. Tu m'ouvres ton âme. Je suis ton unique confidente. Remis ce soir, lu à voix haute si je le décide."}
+]},
+{title:"Plug toute la nuit — Endurance",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Petite cage compressive pour accompagner la nuit."},
+  {tp:"plug",ic:"🔌",tx:"Plug M mis en soirée. Porté toute la nuit. Retiré au matin sur mon autorisation. Ton amour se mesure à ton endurance nocturne."}
+]},
+{title:"Premier bondage Locktober",tasks:[
+  {tp:"bondage",ic:"⛓️",tx:"Menottes poignets verrouillables dans le dos. Barre d'écartement aux chevilles. Collier de posture verrouillé. Tu attends dans la position que j'ai choisie."},
+  {tp:"plug",ic:"🔌",tx:"Plug L imposé pendant toute la session."},
+  {tp:"couple",ic:"💚",tx:"Je décide de quand tu seras libéré. Peut-être après avoir joué avec toi. Peut-être beaucoup plus tard. Tu me remercieras."}
+]},
+{title:"Épreuve des deux semaines — Interrogatoire électro",tasks:[
+  {tp:"bondage",ic:"⛓️",tx:"Menottes policières. Collier de posture verrouillé. Barre d'écartement. Assis face à moi."},
+  {tp:"plug",ic:"🔌",tx:"Plug S électro en place."},
+  {tp:"elec",ic:"⚡",tx:"Cage plastique électro + plug S électro. DG Labs Coyote, 2 canaux actifs pendant tout l'interrogatoire."},
+  {tp:"couple",ic:"💚",tx:"Qu'as-tu appris en 14 jours ? Pourquoi mérites-tu de continuer ? Es-tu prêt pour la chasteté permanente ? Toute hésitation = stimulation immédiate."}
+]},
+{title:"Fuck machine — Tu n'es qu'un objet",tasks:[
+  {tp:"bondage",ic:"⛓️",tx:"Menottes verrouillables. Barre d'écartement moyenne réglable. Position à quatre pattes, immobilisé."},
+  {tp:"couple",ic:"💚",tx:"La fuck machine (18cm x 3,5cm) prend la relève. 20 minutes. Je regarde, je fais ce que je veux. Tu n'es qu'un objet mécanique dont je dispose."},
+  {tp:"cage",ic:"🔒",tx:"Cage retirée pour la session, remise immédiatement après. Tu n'as pas eu de plaisir — seulement de l'utilité."}
+]},
+{title:"Électro à mon gré — Journée sous tension",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Cage plastique électro portée toute la journée."},
+  {tp:"elec",ic:"⚡",tx:"DG Labs Coyote connecté. J'active à mes envies — aléatoirement, sans prévenir, quand l'idée me traverse. Tu vis au rythme de mes impulsions."},
+  {tp:"lingerie",ic:"👙",tx:"Pads électro adhésifs en place aussi. 2 canaux actifs."}
+]},
+{title:"Supplications — Pitié pour moi",tasks:[
+  {tp:"cage",ic:"🔒",tx:"La cage à pointes reprend sa place après tes 10 minutes accordées. Ta récompense pour avoir supplié."},
+  {tp:"couple",ic:"💚",tx:"Mets-toi à genoux. Dis-moi pourquoi tu mérites une pause. Si tu es suffisamment sincère et pitoyable, je t'accorde 10 minutes hors cage."}
+]},
+{title:"Nuit sadique — Mon jouet préféré",tasks:[
+  {tp:"couple",ic:"💚",tx:"Nuit à mon entière discrétion. Je joue avec ton corps comme avec mon jouet préféré."},
+  {tp:"plug",ic:"🔌",tx:"Plug gonflable gonflé, ampoule retirée. Verrouillé en place."},
+  {tp:"elec",ic:"⚡",tx:"Cage plastique électro + pads adhésifs. Les deux canaux du Coyote actifs. C'est moi qui tiens la télécommande."},
+  {tp:"lingerie",ic:"👙",tx:"Pinces à tétons serrées. Corset verrouillé. Tu es entièrement contraint."}
+]},
+{title:"Le mot non n'existe plus",tasks:[
+  {tp:"couple",ic:"💚",tx:"À partir de ce jour et jusqu'au 31 : le mot 'non' disparaît définitivement. Tu n'es que docilité absolue. Refuser = punition de niveau III automatique."},
+  {tp:"cage",ic:"🔒",tx:"Petite cage compressive 18h."}
+]},
+{title:"Privation sensorielle — Tu es invisible",tasks:[
+  {tp:"bondage",ic:"⛓️",tx:"Menottes verrouillables aux poignets. Barre d'écartement aux chevilles."},
+  {tp:"lingerie",ic:"👙",tx:"Cagoule latex. Bouchons d'oreilles dessous. Casque antibruit par-dessus. Lentilles blanches : aveuglement total."},
+  {tp:"couple",ic:"💚",tx:"Je t'ignore. Tu es invisible. Tu m'aimes assez pour accepter cette absence totale. Durée : à mon entière discrétion."}
+]},
+{title:"Harnais inversé — Tu me sers en cage",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Le harnais possède un trou prévu à cet effet. La cage reste. Tu me sers verrouillé."},
+  {tp:"couple",ic:"💚",tx:"Tu portes le harnais strap-on avec le gode 18cm, en cage. Tu me prends et me donnes tout le plaisir que je veux. Pendant ce temps, ta cage te rappelle que ton plaisir n'existe pas."}
+]},
+{title:"Corset au maximum — Servitude stricte",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Ceinture + soutien-gorge de chasteté verrouillés. Pinces à tétons dessous."},
+  {tp:"lingerie",ic:"👙",tx:"Corset serré au maximum et verrouillé — il le restera jusqu'à la fin du Locktober. Tenue soubrette + talons hauts."},
+  {tp:"couple",ic:"💚",tx:"Corvées toute la journée. À chaque tâche réussie, peut-être une caresse. Jamais plus."}
+]},
+{title:"Bottes de ballet — Position de dévotion",tasks:[
+  {tp:"bondage",ic:"⛓️",tx:"Bottes de ballet verrouillées (4 cadenas). Barre d'écartement. Collier de posture verrouillé. 1h immobile, à ma merci."},
+  {tp:"lingerie",ic:"👙",tx:"Corset verrouillé. Bas similicuir sur les mains. Tes doigts sont inutiles."},
+  {tp:"cage",ic:"🔒",tx:"Petite cage compressive."}
+]},
+{title:"Silence absolu — Oui Maîtresse",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Cage ajustée. Corset verrouillé."},
+  {tp:"couple",ic:"💚",tx:"Tes seuls mots autorisés aujourd'hui : 'Oui, Maîtresse.' Toute autre parole = punition de niveau II. Toute la journée."},
+  {tp:"lingerie",ic:"👙",tx:"Lingerie complète. Tenue féminine dès que les enfants partent."}
+]},
+{title:"Masque à gaz — L'air que je t'accorde",tasks:[
+  {tp:"bondage",ic:"⛓️",tx:"Menottes verrouillables dans le dos. Barre d'écartement. Collier de posture."},
+  {tp:"lingerie",ic:"👙",tx:"Cagoule latex. Bouchons d'oreilles dessous. Casque antibruit. Masque à gaz intégral avec bouteille partiellement obstruée."},
+  {tp:"plug",ic:"🔌",tx:"Plug L en place."},
+  {tp:"couple",ic:"💚",tx:"La bouteille règle ce que tu respires. Je contrôle tout. 30 min. Je suis avec toi à chaque instant."}
+]},
+{title:"Nuit menottée — Ton sommeil m'appartient",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Petite cage compressive."},
+  {tp:"bondage",ic:"⛓️",tx:"Menottes policières pour la nuit. Elles ne s'ouvrent qu'avec ma clé. Ton sommeil est un luxe que je t'arrache."},
+  {tp:"plug",ic:"🔌",tx:"Plug M pour la nuit."}
+]},
+{title:"Le Grand Cauchemar — L'épreuve absolue",tasks:[
+  {tp:"bondage",ic:"⛓️",tx:"Attaché aux 4 coins du lit. Bras et jambes écartés. Ballet boots verrouillées. Bas similicuir sur les mains. Menottes policières. Aucun mouvement possible."},
+  {tp:"lingerie",ic:"👙",tx:"Bouchons d'oreilles sous la cagoule latex. Masque à gaz opaque avec bouteille fixée. Casque antibruit. Bâillon gonflable gonflé, ampoule retirée, puis masque à gaz. Pinces à tétons. Corset verrouillé."},
+  {tp:"plug",ic:"🔌",tx:"Plug gonflable gonflé, ampoule retirée. Tu es verrouillé partout."},
+  {tp:"elec",ic:"⚡",tx:"Cage plastique électro + pads adhésifs. 2 canaux du Coyote actifs. Le gode-ceinture est sur toi pour mon plaisir personnel."},
+  {tp:"couple",ic:"💚",tx:"2h minimum. Peut-être plus. Tu ne sais pas. Tu ne vois rien. Tu n'entends rien. Tu ne peux rien. Ma main sur tes pinces est ton seul ancrage. L'attente est ton enfer. C'est la plus belle preuve d'amour."}
+]},
+{title:"Nuit prison — Tu dors dans ma prison",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Cage plastique électro pour la nuit. J'active à intervalles irréguliers pendant que tu tentes de dormir."},
+  {tp:"plug",ic:"🔌",tx:"Plug gonflable pour la nuit, gonflé, ampoule retirée."},
+  {tp:"lingerie",ic:"👙",tx:"Corset verrouillé. Pinces à tétons. Tu dors contraint."}
+]},
+{title:"Confession finale — Tout mettre sur papier",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Cage ajustée. Ton encre est ton dernier aveu avant le verdict."},
+  {tp:"couple",ic:"💚",tx:"Tu documentes tout ce mois : ressentis, humiliations, frustrations, moments de faiblesse, de fierté. Pourquoi tu m'aimes encore plus à travers tout ça. Ce texte m'appartient."}
+]},
+{title:"Avant-dernier jour — Mon pantin adoré",tasks:[
+  {tp:"cage",ic:"🔒",tx:"Cage à pointes + tube urétral. Corset verrouillé au maximum jusqu'au verdict. Tu ne respireras pas librement avant que je l'aie décidé."},
+  {tp:"lingerie",ic:"👙",tx:"Tenue intégrale choisie par moi. Escarpins très hauts. Tu es mon pantin que j'adore."},
+  {tp:"plug",ic:"🔌",tx:"Plug M en place toute la journée et la nuit."},
+  {tp:"couple",ic:"💚",tx:"Je te regarde. Je te photographie. Tu es magnifique dans ta soumission."}
+]},
+{title:"Jour 31 — Le Verdict",tasks:[
+  {tp:"couple",ic:"💚",tx:"Félicitations. Tu as réussi ton Locktober — le plus difficile que tu aies jamais imaginé. Tu as enduré, obéi, souffert, et tu m'as tout donné."},
+  {tp:"cage",ic:"🔒",tx:"Locktober était ton examen final. Tu as prouvé que tu peux rester verrouillé pour moi pendant un mois entier."},
+  {tp:"info",ic:"📜",tx:"Maintenant : pourquoi devrais-je te libérer, si ce n'est pour mon plaisir personnel ? Tu m'appartiens corps et âme. Ta liberté n'existe que pour me procurer MON plaisir. Mon verdict sera rendu ce soir. Sois convaincant — si tu oses demander."}
+]}
+];
 
 function getDayTask(d){
   const total = daysBetween(START, d);
@@ -1140,25 +1280,15 @@ function getDayTask(d){
     if(isWeekend){ bondage=true; tasks.push({type:'couple',icon:'💚',text:`<em>Session sensorielle ordonnée par la Maîtresse :</em> Bottes ballet, barre d'écartement, collier de posture, cage. Bouchons d'oreilles + cagoule latex + casque antibruit. Lentilles à la discrétion de la Maîtresse. Durée : 1–2h.`}); }
   } else {
     const tL=total-118;
-    const cagesL=[CAGES.grande,CAGES.adaptee,CAGES.petite,CAGES.plastique,CAGES.ceinture];
-    cage=cagesL[tL%5];
-    tasks.push({type:'cage',icon:'🔒',text:`<strong>Locktober — Jour ${tL+1}/31 :</strong> La <em>${cage}</em> ne sera retirée que sur ordre de la Maîtresse. Pas de dérogation.`});
-    linge=true;
-    tasks.push({type:'lingerie',icon:'👙',text:'Tenue féminine complète imposée à la maison. Lingerie sous les vêtements à l\'extérieur. Escarpins en intérieur sur ordre.'});
-    plug=true;
-    const plugsL=['M','L','gonflable','électro-S','L','gonflable','M'];
-    tasks.push({type:'plug',icon:'🔌',text:`Plug ${plugsL[tL%7]} : minimum 2h, au moment choisi par la Maîtresse.`});
-    if(tL%3===0){
-      bondage=true;
-      const sc=[
-        "Menottes verrouillables dans le dos + barre d'écartement aux chevilles + cage. La Maîtresse décide de la suite.",
-        "Corset verrouillé + collier de posture + bottes de ballet. Position d'attente 30 min.",
-        "Le soumis porte le harnais strap-on (gode 18cm) en cage, pour satisfaire sa Maîtresse.",
-        "Bâillon boule verrouillable + lentilles blanches (aveuglement total) + mains liées. Attente à sa discrétion.",
-        "Menottes policières + plug gonflable (ampoule retirée) + cagoule latex. 45 min.",
-        "Ceinture + pinces à tétons verrouillées + soutien-gorge + escarpins. La Maîtresse parade son soumis."
-      ];
-      tasks.push({type:'couple',icon:'💚',text:`<em>Obligation Locktober :</em> ${sc[tL%6]}`});
+    if(tL>=0 && tL<31){
+      const ld=LOCKTOBER_DAYS[tL];
+      ld.tasks.forEach(t=>{
+        tasks.push({type:t.tp,icon:t.ic,text:t.tx});
+        if(t.tp==='cage')cage=true;
+        if(t.tp==='plug')plug=true;
+        if(t.tp==='lingerie')linge=true;
+        if(t.tp==='couple'||t.tp==='bondage')bondage=true;
+      });
     }
   }
   return {tasks,cage,plug,linge,bondage};
@@ -1275,7 +1405,6 @@ function toggleDone(k){
   render();
 }
 
-
 const PUNITIONS = {
   1: [
     { nom: "Extension de port obligatoire", desc: "Le soumis doit porter sa cage 3h supplémentaires ce jour, sans dérogation possible. La Maîtresse vérifie.", duree: "Ce jour même" },
@@ -1334,7 +1463,7 @@ function tirerPunition(niveau) {
 function confirmerPunition(niveau, nom) {
   const log = getPunitionLog();
   const now = new Date();
-  const dateStr = now.toLocaleDateString('fr-FR', {day:'numeric', month:'short', year:'numeric'});
+  const dateStr = now.toLocaleDateString('fr-FR', {day:'numeric', month:'short', year:'numeric', timeZone:'Europe/Paris'});
   log.unshift({ niveau, nom, date: dateStr });
   if (log.length > 20) log.pop();
   savePunitionLog(log);
